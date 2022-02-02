@@ -63,3 +63,5 @@ logisticRegressionModel predictProbabilities: testInput
 ```
 
 In our example, we have a `0.05335185163762839` probability that the output for `-3`  is `1`. Also we have a `0.9999331093095885` probability that the output for `10` is `1`.
+
+[Measuring the accuracy of a model](./Measuring-the-accuracy-of-a-model.md)

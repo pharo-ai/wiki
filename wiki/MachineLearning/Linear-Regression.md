@@ -50,3 +50,5 @@ expectedOutput := #(-2.7 -0.01 -2.4 -25.1 0.3).
 linearRegressionModel predict: testInput.
 "#(-2.7144345209804244 -0.10075173689646852 -2.405518008448657 -25.090722165135997 0.28647833494634645)"
 ```
+
+[Measuring the accuracy of a model](./Measuring-the-accuracy-of-a-model.md)
