@@ -1,6 +1,8 @@
 
 # Logistic regression
 
+Repository: https://github.com/pharo-ai/linear-models
+
 Logistic regression is a statistical model that predicts the likehood that an event can happen giving as an output the probability.
 
 For example, if we have a function: 
