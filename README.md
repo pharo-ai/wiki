@@ -5,7 +5,7 @@ This is the Pharo-AI Wiki
 
 #### Prediction
 
-- [Linear regression](./wiki/MachineLearning/Linear-Regression)
+- [Linear regression](./wiki/MachineLearning/Linear-Regression.md)
 
 #### Classification
 
