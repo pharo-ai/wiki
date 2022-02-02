@@ -29,6 +29,7 @@ Currently, we have this algorithms implemented.
 All the graph algorithms of this library share a common API also. The class AIGraphAlgorithm provides the common API to add nodes, edges, searching the nodes, etc.
 
 Some of the common methods are:
+
 - `algorithm nodes:`
 - `algorithm nodes`
 - `algorithm edges`
