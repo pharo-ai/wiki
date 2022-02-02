@@ -6,8 +6,8 @@ This is our page for getting started. That page should have how to install our a
 
 ## Tutorials
 
-- Using Linear Regression for predicting the price of a house using the Boston Dataset
-- Using Logistic Regression for saying if someone has diabetes based on its physical conditions using the National Institute of Diabetes and Digestive and Kidney Diseases Dataset
+- [Using Linear Regression for predicting the price of a house using the Boston Dataset](./wiki/Tutorials/linear-regression-tutorial.md)
+- [Using Logistic Regression for saying if someone has diabetes based on its physical conditions using the National Institute of Diabetes and Digestive and Kidney Diseases Dataset](./wiki/Tutorials/logistic-regression-tutorial.md)
 
 ## State space search
 
@@ -32,16 +32,8 @@ This is our page for getting started. That page should have how to install our a
 - K Means 
 - Hierarchical Clustering
 
-## Natural Language Processing and Manipulation (WIP)
+## Data Preprocessing
 
-- Natural language processing
-- Term Frequency - Inverse Document Frequency
-- N-gram Model
-- Spelling correction
-
-## Data Exploration and Manipulation
-
-- [Metrics](./wiki/DataExploration/Metrics.md)
 - [Normalization](./wiki/Logistic-Regression)
 - [Random Partitioner for Datasets](./wiki/DataExploration/Random-Partitioner.md)
 
@@ -49,6 +41,14 @@ This is our page for getting started. That page should have how to install our a
 
 - A Priori algorithm
 
-## String matching
+## Metrics
 
+- [Metrics](./wiki/DataExploration/Metrics.md)
 - [Edit distances](./wiki/StringMatching/Edit-distances.md)
+
+## Natural Language Processing (WIP)
+
+- Natural language Processing
+- Term Frequency - Inverse Document Frequency
+- N-gram Model
+- Spelling correction
