@@ -1,13 +1,14 @@
 # Graph algorithms
 
-Graphs algorithms very useful for different types of problems. We also have a great booket [Booklet-PharoGraphs](https://github.com/SquareBracketAssociates/Booklet-PharoGraphs) in which we go into details of the logic of the algorithms and its implementation in Pharo.
+Repository: https://github.com/pharo-ai/graph-algorithms
+
+Graphs algorithms are very useful for different types of problems. We also have a great booket [Booklet-PharoGraphs](https://github.com/SquareBracketAssociates/Booklet-PharoGraphs) in which we go into details of the logic of the algorithms and its implementation in Pharo.
 
 ### Table of Contents
 
 - [Implemented graph algorithms](#implemented-graph-algorithms)  
-- [How to use the algorithms - API](#how-to-use-the-graph-algorithms---api)  
+- [How to use the graph algorithms - API](#how-to-use-the-graph-algorithms---api)  
 - [Graph generation algorithms](#graph-generation-algorithms)  
-
 
 ## Implemented graph algorithms
 
@@ -23,7 +24,7 @@ Currently, we have this algorithms implemented.
   - Topological Sort
   - Shortest Path in DAG
 
-## How to use the algorithms - API 
+## How to use the graph algorithms - API 
 
 All the graph algorithms of this library share a common API also. The class AIGraphAlgorithm provides the common API to add nodes, edges, searching the nodes, etc.
 
