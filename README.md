@@ -36,7 +36,7 @@ This is the Pharo-AI Wiki
 
 ## Data Exploration and Manipulation
 
-- [Machine Learning Metrics](./wiki/DataExploration/Metrics.md)
+- [Metrics](./wiki/DataExploration/Metrics.md)
 - [Normalization](./wiki/Logistic-Regression)
 - Shingles Similarity
 - [Random Partitioner for Datasets](./wiki/DataExploration/Random-Partitioner.md)

@@ -27,10 +27,10 @@ _Note: This is currently work in progress. More metrics will be added in the fut
 - [Mean Squared Error](#mean-squared-error)
 - [Mean Absolute Error](#mean-absolute-error)
 - [Mean Squared Logarithmic Error](#mean-squared-logarithmic-error)
+- [R2 Score](#r2-score)
 - [Root Mean Squared Error](#root-mean-squared-error)
 - [Max Error](#max-error)
 - [Explained Variance Score](#explained-variance-score)
-- [R2 Score](#r2-score)
 
 This package also contains regression metrics for testing the performance of different machine learning models. For example: Logistic and Linear regression.
 Part of this text for the explanation were extracted from [scikit-learn documentation](https://scikit-learn.org/stable/modules/model_evaluation.html)
