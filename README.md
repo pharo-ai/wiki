@@ -1,6 +1,12 @@
 # Pharo-AI Wiki
 
 This is the Pharo-AI Wiki
+
+## Tutorials
+
+- Using Linear Regression for predicting the price of a house using the Boston Dataset
+- Using Logistic Regression for saying if someone has diabetes based on its physical conditions using the National Institute of Diabetes and Digestive and Kidney Diseases Dataset
+
 ## Machine Learning
 
 #### Prediction
@@ -23,7 +29,7 @@ This is the Pharo-AI Wiki
 
 ## Natural Language Processing and Manipulation (WIP)
 
-- [Natural language processing](./wiki/NaturalLanguageProcessing/Natural-Language-Processing.md) 
+- Natural language processing
 - Term Frequency - Inverse Document Frequency
 - N-gram Model
 - Spelling correction

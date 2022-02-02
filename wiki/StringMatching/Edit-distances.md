@@ -18,12 +18,13 @@ These are the currently implemented distance.
 
 _Note that we are currently working on this project so we will be implementing more distance in the future._
 
-  - Euclidean norm, also known as Euclidean length, L2 norm, L2 distance, l^2 norm
-  - Manhattan distance, also known as City Block Distance.
-  - Cosine similarity, note this is not the same as TF-IDF.
-  - Levenshtein distance
-  - Kendall Tau distance (with and without normalization)
-  - Szymkiewicz-Simpson coefficient
+  - [Euclidean norm](#euclidean-norm), also known as Euclidean length, L2 norm, L2 distance, l^2 norm
+  - [Manhattan distance](#manhattan-distance), also known as City Block Distance.
+  - [Cosine similarity](#cosine-similarity), note this is not the same as TF-IDF.
+  - [Levenshtein distance](#levenshtein-distance)
+  - [Kendall Tau distance](#kendall-tau-distance) (with and without normalization)
+  - [Szymkiewicz-Simpson coefficient](#szymkiewicz-Simpson-coefficient)
+  - [Shingles similarity](#shingles-similarity)
 
 All the distances are implemented the strategy design pattern. They have the same API.
 
@@ -162,8 +163,52 @@ Also called overlap coefficient, is a similarity measure that measures the overl
 ```
 
 ```st
-overlapCoefficient := AISzymkiewiczSimpsonDistance new.
-overlapCoefficient
+szymkiewiczSimpsonDistance := AISzymkiewiczSimpsonDistance new.
+szymkiewiczSimpsonDistance
 	distanceBetween: #( 1000 2 0.5 3 6 88 99 ) asSet
 	and: #( 1000 0.5 99 ) asSet. "1.0"
+```
+
+### Shingles similarity
+
+A string similarity metric based on Shingles encoding [1]. It is well suited for detecting strings that underwent small modifications. Shingles encoding changes a little when string changes a little.
+
+[1] Broder, Andrei Z. "On the resemblance and containment of documents." Proceedings. Compression and Complexity of SEQUENCES 1997 (Cat. No. 97TB100171). IEEE, 1997.
+
+```st
+shinglesSimilarity := AIShinglesSimilarity
+  slidingWindowSize: 2
+  maxEncodingSize: 5.
+
+#(lorem ipsum dolor sit amet)
+  distanceTo: #(hello world lorem ipsum)
+  using: shinglesSimilarity "(7/24)"
+```
+
+```st
+shinglesSimilarity := AIShinglesSimilarity
+	slidingWindowSize: 2
+	maxEncodingSize: 5.
+
+#(lorem ipsum dolor sit amet)
+	distanceTo: #(hello world lorem ipsum)
+	using: shinglesSimilarity "(7/24)"
+```
+
+`slidingWindowSize` and `maxEncodingSize` have default values. Note that the result will change acording to the values that are set.
+
+```st
+shinglesSimilarity := AIShinglesSimilarity new.
+
+#(lorem ipsum dolor sit amet)
+  distanceTo: #(hello world lorem ipsum)
+  using: shinglesSimilarity "0"
+```
+
+```st
+shinglesSimilarity := AIShinglesSimilarity new.
+
+#(lorem ipsum dolor sit amet)
+	distanceTo: #(hello world lorem ipsum)
+	using: shinglesSimilarity "0"
 ```
