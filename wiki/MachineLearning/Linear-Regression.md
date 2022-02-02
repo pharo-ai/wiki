@@ -1,5 +1,7 @@
 # Linear regression
 
+Repository: https://github.com/pharo-ai/linear-models
+
 Linear regression is one of the most well-known and most commonly used machine learning algorithms.
 It allows us to learn the linear dependency between the input variables $x_1, \dots, x_n$ and the output variable $y$.
 Attempts to find the the linear relationship between one or more input variables _x1, x2, ..., xn_ and an output variable _y_. It finds a set of parameters _b, w1, w2, ..., wn_ such that the predicted output _h(x) = b + w1 * x1 + ... + wn * xn_ is as close as possible to the real output _y_. Then we can use the trained model to predict the previously unseen values of y.
