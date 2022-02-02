@@ -10,7 +10,7 @@ This is the Pharo-AI Wiki
 #### Classification
 
 - Hierarchical Clustering
-- [Logistic regression](./wiki/Logistic-Regression)
+- [Logistic regression](./wiki/MachineLearning/Logistic-Regression.md)
 - Decision Tree Model
 - Naive Bayes Classifier
 - K Means 
@@ -19,23 +19,23 @@ This is the Pharo-AI Wiki
 
 ## Graphs
 
-- [Graphs algorithms](./wiki/Graph-Algorithms)
+- [Graphs algorithms](./wiki/Graphs/Graph-Algorithms.md)
 
 ## Natural Language Processing and Manipulation (WIP)
 
-- [Natural language processing](./wiki/Natural-Language-Processing) 
+- [Natural language processing](./wiki/NaturalLanguageProcessing/Natural-Language-Processing.md) 
 - Term Frequency - Inverse Document Frequency
 - N-gram Model
 - Spelling correction
 
 ## Data Exploration and Manipulation
 
-- [Machine Learning Metrics](./wiki/Metrics)
+- [Machine Learning Metrics](./wiki/DataExploration/Metrics.md)
 - [Normalization](./wiki/Logistic-Regression)
 - Shingles Similarity
-- [Random Partitioner for Datasets](./wiki/Random-Partitioner)
+- [Random Partitioner for Datasets](./wiki/DataExploration/Random-Partitioner.md)
 - A Priori algorithm for Data Mining
 
 ## String matching
 
-- [Edit distances](./wiki/Edit-distances)
+- [Edit distances](./wiki/StringMatching/Edit-distances.md)
