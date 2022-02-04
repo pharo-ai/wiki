@@ -62,6 +62,6 @@ This is our page for getting started. That page should have how to install our a
 ## Natural Language Processing
 
 - Natural language Processing (WIP)
-- Term Frequency - Inverse Document Frequency (WIP)
+- [Term Frequency - Inverse Document Frequency (TF-IDF)](./wiki/NaturalLanguageProcessing/TFIDF.md)
 - N-gram Model (WIP)
 - Spelling correction (WIP)
