@@ -38,12 +38,12 @@ This is our page for getting started. That page should have how to install our a
 - Decision Tree Model
 - Naive Bayes Classifier
 - K-Nearest Neighbours (WIP)
-- Gaussian Mixture Model (WIP)
 
 #### Clustering
 
 - K Means 
 - Hierarchical Clustering
+- Gaussian Mixture Model (WIP)
 
 ## Data Preprocessing
 
