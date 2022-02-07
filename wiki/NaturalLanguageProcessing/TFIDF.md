@@ -2,8 +2,6 @@
 
 Repository: https://github.com/pharo-ai/tf-idf
 
-This repository contains the implementation of TF-IDF algorithm in Pharo.
-
 ## How to use it
 
 Here is a simple example of how you can train a TF-IDF model and use it to assign scores to words. You are given an array of sentences where each sentence is represented as an array of words:
