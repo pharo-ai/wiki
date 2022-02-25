@@ -1,8 +1,10 @@
 # Pharo-AI Wiki
 
-This is the Pharo-AI Wiki. We need an introduction.
+This is the Pharo-AI Wiki. The goal of this wiki is to provide documentation and tutorials to help people start using our Pharo AI/Machine-Learning libraries.
 
-This is our page for getting started. That page should have how to install our ai packages. how to contribute etc.
+See [Getting Started](./wiki/GettingStarted/GettingStarted.md) page.
+
+Keep in mind that the wiki and pharo-ai is right now under construction version so not all the algorithms will be documented or with all the functionalities that we would like to have.  Nevertheless, all the things that are documented here had been revised and are working.
 
 ## Contents
 
@@ -31,10 +33,10 @@ This is our page for getting started. That page should have how to install our a
 #### Regression
 
 - [Linear regression](./wiki/MachineLearning/Linear-Regression.md)
+- [Logistic regression](./wiki/MachineLearning/Logistic-Regression.md)
 
 #### Classification
 
-- [Logistic regression](./wiki/MachineLearning/Logistic-Regression.md)
 - Decision Tree Model
 - Naive Bayes Classifier
 - K-Nearest Neighbours (WIP)
