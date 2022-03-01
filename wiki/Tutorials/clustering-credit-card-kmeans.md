@@ -106,7 +106,7 @@ kMeans fit: dataAsArray.
 clusters := kMeans clusters.
 ```
 
-Summary of the code
+## All the code
 
 ```st
 ""
@@ -224,7 +224,7 @@ We see that the visualisation is very confusing. We have to keep in mind that th
 
 ![](./img/credit-card-reduced-two-dimensions.png)
 
-Summary of the dimensionality reduction code
+## All the dimensionality reduction code
 
 ```st
 "take randomly 1000 elements for speed up the computation"

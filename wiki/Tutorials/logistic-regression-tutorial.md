@@ -157,7 +157,7 @@ As we can see, our model has a accuracy of **79%**.
 
 That means, the model predicted correctly if 8 out of 10 people have or do not have diabetes. 
 
-## Workflow summary
+##  All the code
 
 You can run the following script in a Pharo image to get all the result that we discussed above.
 Do not forget to install the libraries!

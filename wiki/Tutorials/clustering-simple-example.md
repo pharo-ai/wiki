@@ -68,7 +68,7 @@ If we look at the real data plotted, we can see that there is five points that w
 
 ![](./img/kmeans-data-real.png)
 
-Summary of the code:
+## All the code:
 
 ```st
 "Load the dataset"

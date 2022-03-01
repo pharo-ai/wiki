@@ -145,7 +145,7 @@ r2Score "0.7382841848355153" := (metric computeForActual: yTest predicted: yPred
 
 We have obtained a 74% as a coefficient of determination.
 
-## Workflow summary
+## All the code
 
 Here is the complete workflow of the exercise in which we have worked today. You can run everything in a Pharo Playground to play with the model.
 
