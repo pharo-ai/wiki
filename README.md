@@ -24,6 +24,7 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 - [Using Linear Regression for predicting the price of a house using the Boston Dataset](./wiki/Tutorials/linear-regression-tutorial.md)
 - [Using Logistic Regression for saying if someone has diabetes based on its physical conditions](./wiki/Tutorials/logistic-regression-tutorial.md)
 - [Using K-Means Clustering Machine Learning Algorithm - Simple Example](./wiki/Tutorials/clustering-simple-example.md)
+- [Clustering Users of a Credit Card Company using the K-Means Algorithm](./wiki/Tutorials/clustering-credit-card-kmeans.md)
 
 ## State Space Search
 
@@ -44,8 +45,8 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 #### Clustering
 
-- K Means 
-- Hierarchical Clustering
+- K Means
+- Hierarchical Clustering (WIP)
 - Gaussian Mixture Model (WIP)
 
 ## Data Preprocessing
