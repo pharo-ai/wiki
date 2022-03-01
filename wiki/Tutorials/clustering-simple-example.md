@@ -12,6 +12,8 @@ iris := AIDatasets loadIris.
 
 If we inspect the variable (open the Pharo Inspector) you will see that you have 4 column names.
 
+![](./img/data-inspector-iris.png)
+
 ```st
 iris columnNames. "('sepal length (cm)' 'sepal width (cm)' 'petal length (cm)' 'petal width (cm)' 'species')"
 ```
