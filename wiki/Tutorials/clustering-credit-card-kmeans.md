@@ -1,5 +1,7 @@
 # Clustering Users of a Credit Card Company using the K-Means Algorithm
 
+In this tutorial we will use the k-means clustering algorithm for classifying the clients based on their credit card consumption.
+
 ### Data Analysis and Manipulation
 
 First, we will load the dataset.
@@ -34,10 +36,13 @@ creditCardData
 
 ### K-Means Algorithm
 
-For now, the K-Means algorithm expects an `Array` or a `Collection`. The data is an object of `DataFrame`. We need to convert the data from DataFrame to Array
+For now, the K-Means algorithm expects an `Array` or a `Collection`. The data is an object of `DataFrame`. We need to convert the data from DataFrame to Array.
+
+[Optional]
+Also, for speeding up the computation, we will take 1000 random elements of the data. You can run it with the whole dataset but it will take some minutes to execute.
 
 ```st
-dataAsArray := creditCardData asArrayOfRows.
+dataAsArray := creditCardData asArrayOfRows shuffled first: 1000.
 ```
 
 The data is too big and it has too many dimensions to be graph. So, to find the best number of clusters, we will train the model with 12 clusters.
@@ -95,7 +100,10 @@ elbowChart build.
 elbowChart canvas open.
 ```
 
-If we look at the elbow graph, we see that the best number of clusters is 9. We train the algorithm again with that number of clusters 
+If we look at the elbow graph, we it seems that the best number of clusters is 9. Note that you may have not the exact same results. 
+
+We train the algorithm again with that number of clusters.
+
 ```
 kMeans := AIKMeans numberOfClusters: 9.
 kMeans fit: dataAsArray.  
@@ -132,10 +140,10 @@ creditCardData
 "K-MEANS ALGORITHM CLUSTERING"
 ""
 
-"For now, the K-Means algorithm expects an Array or a Collection. The data is an object of DataFrame. We need to convert the data from DataFrame to Array"
-dataAsArray := creditCardData asArrayOfRows.
+"Convert the data from DataFrame to Array and take 1000 random elements to speed up."
+dataAsArray := creditCardData asArrayOfRows shuffled first: 1000..
 
-"We train the model with 12 clusters to find the best one"
+"We train the model with 12 clusters"
 numberOfClustersCollection := 2 to: 12.
 
 "Create a collection for storing the errors."
@@ -147,8 +155,7 @@ numberOfClustersCollection do: [ :numberOfClusters |
 	kMeans fit: dataAsArray.  
 	inertias add: (kMeans score: dataAsArray) ].
 
-"If we look at the elbow graph, we see that the best number of clusters is 9. We train the algorithm again with that number of clusters"
-
+"If we look at the elbow graph, we see that 9 clusters seems to be the best solution."
 kMeans := AIKMeans numberOfClusters: 9.
 kMeans fit: dataAsArray.  
 
@@ -157,8 +164,79 @@ clusters := kMeans clusters.
 
 ## Principal Component Analysis
 
+Principal component analysis (PCA), is a statistical method that allows to summarize the information of a dataset. It gives the k-most representative features of data. It can be used to more easily visualise the data.
+
+For doing this, we will use [PolyMath](https://github.com/PolyMathOrg/PolyMath) library that is loaded in the pahro-ai library.
+
+[Optional]
+For speeding purposes, we will take 1000 random elements of the data. You can run it with the whole dataset but it will take some minutes to execute.
+
 ```st
 "For doing the principal component analysis (PCA), we will take randomly 1000 elements for speed up the computation"
+shuffledData := creditCardData asArrayOfRows shuffled first: 1000.
+```
+
+Now, we create our PolyMath matrix
+
+```st
+polyMathMatrix := PMMatrix rows: shuffledData.
+```
+
+Wa want to plot the data. So, we want 2 parameters, one for the x axis and the other one for the y axis.
+
+We train the principal component analyser for 2 components.
+
+```st
+pca := PMPrincipalComponentAnalyserSVD new.
+pca componentsNumber: 2.
+pca fit: polyMathMatrix.
+principalComponents := pca transform: polyMathMatrix.
+```
+
+As we discussed in the last part, we see that 9 is the number of clusters that work the best. We train again our model.
+
+```st
+kMeans := AIKMeans numberOfClusters: 9.
+kMeans fit: shuffledData.  
+
+clusters := kMeans clusters.
+```
+
+Now, we gain the two principal components of the data to reduce the data dimension to 2.
+
+```st
+xPrincipalComponent := principalComponents rows collect: [ :each | each first].
+yPrincipalComponent := principalComponents rows collect: [ :each | each second].
+```
+
+We use those `x` and `y` to graph the data with its different groups.
+
+```st
+colors := RSColorPalette qualitative dark28 range.
+
+clusteredDataChart :=RSChart new.
+clusteredDataChart addPlot: (plot := RSScatterPlot new x: x y: y ).
+clusteredDataChart 
+    xlabel: 'most representative feature';
+    ylabel: 'second most representative feature';
+    title: 'Clustered data reduced to 2 dimensions'.
+
+clusteredDataChart build.
+
+plot ellipses doWithIndex: [ :e :i| 
+    e color: (colors at: (clusters at: i)) ].
+
+clusteredDataChart canvas open.
+```
+
+We see that the graph is very confusing. We have to keep in mind that the data has 11 dimensions, we we graph it only using 2. So, we lost information. We need to find better ways of visualising the data. Also, we choose the principal components using information of around only 1/9 of the whole dataset. Finallly, it can be that the k-means algorithm may not be the best approach for this problem. This is only a teaching example.
+
+![](./img/credit-card-reduced-two-dimensions.png)
+
+Summary of the dimensionality reduction code
+
+```st
+"take randomly 1000 elements for speed up the computation"
 shuffledData := creditCardData asArrayOfRows shuffled first: 1000.
 
 polyMathMatrix := PMMatrix rows: shuffledData.
@@ -169,25 +247,25 @@ pca fit: polyMathMatrix.
 principalComponents := pca transform: polyMathMatrix.
 
 
-"If we look at the elbow graph, we see that the best number of clusters is 8.
-So, we train the algorithm again with that number of clusters"
-
-kMeans := AIKMeans numberOfClusters: 8.
+"If we look at the elbow graph, we see that 9 clusters seems to be the best solution."
+kMeans := AIKMeans numberOfClusters: 9.
 kMeans fit: shuffledData.  
 
 clusters := kMeans clusters.
 
+"Get the principal components"
+xPrincipalComponent := principalComponents rows collect: [ :each | each first].
+yPrincipalComponent := principalComponents rows collect: [ :each | each second].
+
 "Graph to show the different groups that were found using the clustering algorithm"
-x := principalComponents rows collect: [ :each | each first].
-y := principalComponents rows collect: [ :each | each second].
 
 colors := RSColorPalette qualitative dark28 range.
 
 clusteredDataChart :=RSChart new.
 clusteredDataChart addPlot: (plot := RSScatterPlot new x: x y: y ).
 clusteredDataChart 
-    xlabel: 'X Axis';
-    ylabel: 'Y Axis';
+    xlabel: 'most representative feature';
+    ylabel: 'second most representative feature';
     title: 'Clustered data reduced to 2 dimensions'.
 
 clusteredDataChart build.
