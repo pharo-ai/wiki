@@ -56,13 +56,13 @@ numberOfClustersCollection do: [ :numberOfClusters |
 	inertias add: (kMeans score: dataAsArray) ].
 ```
 
-By definition, if the number of clusters the error will always reduce. There is different technoques to find the optimal number of clusters. We will use the elbow method.
+By definition, if the number of clusters the error will always reduce. There is different technoques to find the best number of clusters. We will use the elbow method.
 
 If we graph the errors, the curve will look like an arm. We need to manually the point in which the graph starts decreasing the looses.
 
 We will use [Roassal 3](https://github.com/ObjectProfile/Roassal3) for doing the plot. We will not explain the code in this tutorial.
 
-According to the elbow graph, we can see that the optimal number of cluster is nine clusters.
+According to the elbow graph, we can see that the best number of cluster is nine clusters.
 
 ![](./img/elbow-method-credit-card.png)
 
