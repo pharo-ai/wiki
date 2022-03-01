@@ -14,17 +14,13 @@ If we inspect the variable (open the Pharo Inspector) you will see that you have
 
 ![](./img/data-inspector-iris.png)
 
-```st
-iris columnNames. "('sepal length (cm)' 'sepal width (cm)' 'petal length (cm)' 'petal width (cm)' 'species')"
-```
-
 For plotting the data, we will use Roassal. In this tutorial we will not show the code, for simplicity purpous. You can see [their webpage](https://github.com/ObjectProfile/Roassal3).
 
 For this example, we will use only two features of the flower: `petal length (cm)` and `petal width (cm)`. 
 
 ![](./img/petal-graph-roassal-kmeans.png)
 
-With the data plotted in this way, we can see, it seems the data can be classfied in two or three groups. So, we will keep only those.
+With the data plotted in this way, we can see, it seems the data can be clustered in two or three groups. So, we will keep only those.
 
 ```st
 data := iris columns: #('petal length (cm)' 'petal width (cm)').
@@ -60,13 +56,13 @@ kMeans := AIKMeans numberOfClusters: 3.
 kMeans fit: dataAsArray.
 ```
 
-Now, if we plot aging the data which each point to its corresponding cluster, it will look like this:
+Now, if we plot again the data with each point belonging to its corresponding cluster, it will look like this:
 
 We already know, by looking the dataset, that there is only three different groups of iris flowers. But, the k-means algorithm classified the data automatically. This is the result of the classification.
 
 ![](./img/kmeans-data-clustered-three-clusters.png)
 
-If we look at the real data plotted, we can see that there is five points that were classified mistakenly.
+If we look at the real data plotted, we can see that there is five points that were assigned to the wrong cluster.
 
 ![](./img/kmeans-data-real.png)
 
