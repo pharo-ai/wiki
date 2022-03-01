@@ -111,7 +111,7 @@ kMeans fit: dataAsArray.
 clusters := kMeans clusters.
 ```
 
-Summary of the code of the whole tutorial
+Summary of the code
 
 ```st
 ""
