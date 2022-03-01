@@ -32,14 +32,14 @@ For the moment, the algorithm expects to receive a Collection. The variables `ir
 dataAsArray := data asArrayOfRows.
 ```
 
-Now, we will create the K-Means clustering model with two clusters. That means, that the algorithm will automatically classify the data into 2 groups.
+Now, we will create the K-Means clustering model with two clusters. That means, that the algorithm will automatically cluster the data into 2 groups.
 
 ```st
 kMeans := AIKMeans numberOfClusters: 2.
 kMeans fit: dataAsArray.
 ```
 
-Finally, to see how to algorithm is classifying the data, we can inspect the clusters.
+Finally, to see how to algorithm is clustering the data, we can inspect the clusters.
 
 ```st
 clusters := kMeans clusters.
@@ -49,7 +49,7 @@ For better understanding the data, we can plot each data point with its correspo
 
 ![](./img/kmeans-data-clustered-two-clusters.png)
 
-There is one point that it looks likat it is misplaced. We can try classifying the data into three groups.
+There is one point that it looks likat it is misplaced. We can try cluster the data into three groups.
 
 ```st
 kMeans := AIKMeans numberOfClusters: 3.
@@ -58,7 +58,9 @@ kMeans fit: dataAsArray.
 
 Now, if we plot again the data with each point belonging to its corresponding cluster, it will look like this:
 
-We already know, by looking the dataset, that there is only three different groups of iris flowers. But, the k-means algorithm classified the data automatically. This is the result of the classification.
+We already know, by looking the dataset, that there is only three different groups of iris flowers. But, the k-means algorithm classified the data automatically.
+
+This is the result of the cluster.
 
 ![](./img/kmeans-data-clustered-three-clusters.png)
 

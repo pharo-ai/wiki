@@ -1,6 +1,6 @@
 # Clustering Users of a Credit Card Company using the K-Means Algorithm
 
-In this tutorial we will use the k-means clustering algorithm for classifying the clients based on their credit card consumption.
+In this tutorial we will use the k-means clustering algorithm for clustering the clients based on their credit card consumption.
 
 ### Data Analysis and Manipulation
 
@@ -12,12 +12,7 @@ creditCardData := AIDatasets loadCreditCard.
 
 If we inspect (open Pharo Inspector) the DataFrame, we can see that there is 18 features for each client of the credit card company.
 
-```st
-creditCardData columnNames. "('CUST_ID' 'BALANCE' 'BALANCE_FREQUENCY' 'PURCHASES' 'ONEOFF_PURCHASES'
-'INSTALLMENTS_PURCHASES' 'CASH_ADVANCE' 'PURCHASES_FREQUENCY' 'ONEOFF_PURCHASES_FREQUENCY'
-'PURCHASES_INSTALLMENTS_FREQUENCY' 'CASH_ADVANCE_FREQUENCY' 'CASH_ADVANCE_TRX' 'PURCHASES_TRX'
-'CREDIT_LIMIT' 'PAYMENTS' 'MINIMUM_PAYMENTS' 'PRC_FULL_PAYMENT' 'TENURE')"
-```
+![](./img/credit-card-dataset-inspector.png)
 
 Also, after inspecting the data, we can see that it contains nil fields, so we will replace them with zeros
 
@@ -45,7 +40,7 @@ To speed up the computation, we will take 1000 random elements of the data. You 
 dataAsArray := creditCardData asArrayOfRows shuffled first: 1000.
 ```
 
-The data is too big and it has too many dimensions to be visualised. So, to find the best number of clusters, we will train the model with 12 clusters.
+The data is too big and it has too many dimensions to be visualised. So, to find the best number of clusters, we will train the model with 12 different cluster numbers.
 Then, we will plot the error of the model with each number of clusters.
 
 ```st
@@ -225,7 +220,7 @@ plot ellipses doWithIndex: [ :e :i|
 clusteredDataChart canvas open.
 ```
 
-We see that the visualisation is very confusing. We have to keep in mind that the data has 11 dimensions, we plot it only using 2. So, we lost information. We need to find better ways of visualising the data. Also, we choose the principal components using information of around only 1/9 of the whole dataset. Finallly, it can be that the k-means algorithm may not be the best approach for this problem. This is only a teaching example.
+We see that the visualisation is very confusing. We have to keep in mind that the data has 18 dimensions, we plot it only using 2. So, we lost information. We need to find better ways of visualising the data. Also, we choose the principal components using information of around only 1/9 of the whole dataset. Finallly, it can be that the k-means algorithm may not be the best approach for this problem. This is only a teaching example.
 
 ![](./img/credit-card-reduced-two-dimensions.png)
 

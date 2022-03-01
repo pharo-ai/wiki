@@ -153,7 +153,9 @@ metric := AIAccuracyScore new.
 accuracy "0.7916666666666666" := (metric computeForActual: yTest predicted: yPredicted) asFloat.
 ```
 
-As we can see, our model has a accuracy of **79%**. That means, the model predicted correctly if 8 out of 10 people have diabetes.
+As we can see, our model has a accuracy of **79%**.
+
+That means, the model predicted correctly if 8 out of 10 people have or do not have diabetes. 
 
 ## Workflow summary
 
