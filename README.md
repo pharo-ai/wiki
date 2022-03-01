@@ -23,6 +23,7 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 - [Using Linear Regression for predicting the price of a house using the Boston Dataset](./wiki/Tutorials/linear-regression-tutorial.md)
 - [Using Logistic Regression for saying if someone has diabetes based on its physical conditions using the National Institute of Diabetes and Digestive and Kidney Diseases Dataset](./wiki/Tutorials/logistic-regression-tutorial.md)
+- [Using K-Means Clustering Machine Learning Algorithm - Simple Example](./wiki/Tutorials/clustering-simple-example.md)
 
 ## State Space Search
 
