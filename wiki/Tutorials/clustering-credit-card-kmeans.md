@@ -39,14 +39,14 @@ creditCardData
 For now, the K-Means algorithm expects an `Array` or a `Collection`. The data is an object of `DataFrame`. We need to convert the data from DataFrame to Array.
 
 [Optional]
-Also, for speeding up the computation, we will take 1000 random elements of the data. You can run it with the whole dataset but it will take some minutes to execute.
+To speed up the computation, we will take 1000 random elements of the data. You can run it with the whole dataset but it will take some minutes to execute.
 
 ```st
 dataAsArray := creditCardData asArrayOfRows shuffled first: 1000.
 ```
 
-The data is too big and it has too many dimensions to be graph. So, to find the best number of clusters, we will train the model with 12 clusters.
-Then, we will graph the error of the model with each number of clusters.
+The data is too big and it has too many dimensions to be visualised. So, to find the best number of clusters, we will train the model with 12 clusters.
+Then, we will plot the error of the model with each number of clusters.
 
 ```st
 numberOfClustersCollection := 2 to: 12.
@@ -54,24 +54,24 @@ numberOfClustersCollection := 2 to: 12.
 "Create a collection for storing the errors."
 inertias := OrderedCollection new.
 
-"We train 11 k-means models, and store the error of each of them"
+"We train 11 times k-means models, and store the error of each of them"
 numberOfClustersCollection do: [ :numberOfClusters |
 	kMeans := AIKMeans numberOfClusters: numberOfClusters.
 	kMeans fit: dataAsArray.  
 	inertias add: (kMeans score: dataAsArray) ].
 ```
 
-By definition, if the number of clusters the error will always reduce. There is different technoques to find the best number of clusters. We will use the elbow method.
+By definition, if the number of clusters increase the error will always reduce. There is different technoques to find the best number of clusters. We will use the elbow method.
 
-If we graph the errors, the curve will look like an arm. We need to manually the point in which the graph starts decreasing the looses.
+If we plot the errors, the curve will look like an arm. We need to manually the point in which the plot starts decreasing the looses.
 
 We will use [Roassal 3](https://github.com/ObjectProfile/Roassal3) for doing the plot. We will not explain the code in this tutorial.
 
-According to the elbow graph, we can see that the best number of cluster is nine clusters.
+According to the elbow plot, we can see that the best number of cluster is nine clusters.
 
 ![](./img/elbow-method-credit-card.png)
 
-Code for plotting the elbow graph.
+Code for plotting the elbow plot.
 
 ```st
 "Elbow draw with Roassal"
@@ -100,11 +100,11 @@ elbowChart build.
 elbowChart canvas open.
 ```
 
-If we look at the elbow graph, we it seems that the best number of clusters is 9. Note that you may have not the exact same results. 
+If we look at the elbow plot, we it seems that the best number of clusters is 9. Note that you may have not the exact same results. 
 
 We train the algorithm again with that number of clusters.
 
-```
+```st
 kMeans := AIKMeans numberOfClusters: 9.
 kMeans fit: dataAsArray.  
 
@@ -155,7 +155,7 @@ numberOfClustersCollection do: [ :numberOfClusters |
 	kMeans fit: dataAsArray.  
 	inertias add: (kMeans score: dataAsArray) ].
 
-"If we look at the elbow graph, we see that 9 clusters seems to be the best solution."
+"If we look at the elbow plot, we see that 9 clusters seems to be the best solution."
 kMeans := AIKMeans numberOfClusters: 9.
 kMeans fit: dataAsArray.  
 
@@ -191,6 +191,9 @@ pca := PMPrincipalComponentAnalyserSVD new.
 pca componentsNumber: 2.
 pca fit: polyMathMatrix.
 principalComponents := pca transform: polyMathMatrix.
+
+firstPrincipalComponent := principalComponents rows collect: [ :each | each first].
+secondPrincipalComponent := principalComponents rows collect: [ :each | each second].
 ```
 
 As we discussed in the last part, we see that 9 is the number of clusters that work the best. We train again our model.
@@ -202,14 +205,7 @@ kMeans fit: shuffledData.
 clusters := kMeans clusters.
 ```
 
-Now, we gain the two principal components of the data to reduce the data dimension to 2.
-
-```st
-xPrincipalComponent := principalComponents rows collect: [ :each | each first].
-yPrincipalComponent := principalComponents rows collect: [ :each | each second].
-```
-
-We use those `x` and `y` to graph the data with its different groups.
+We use those `x` and `y` to plot the data with its different groups.
 
 ```st
 colors := RSColorPalette qualitative dark28 range.
@@ -229,7 +225,7 @@ plot ellipses doWithIndex: [ :e :i|
 clusteredDataChart canvas open.
 ```
 
-We see that the graph is very confusing. We have to keep in mind that the data has 11 dimensions, we we graph it only using 2. So, we lost information. We need to find better ways of visualising the data. Also, we choose the principal components using information of around only 1/9 of the whole dataset. Finallly, it can be that the k-means algorithm may not be the best approach for this problem. This is only a teaching example.
+We see that the visualisation is very confusing. We have to keep in mind that the data has 11 dimensions, we plot it only using 2. So, we lost information. We need to find better ways of visualising the data. Also, we choose the principal components using information of around only 1/9 of the whole dataset. Finallly, it can be that the k-means algorithm may not be the best approach for this problem. This is only a teaching example.
 
 ![](./img/credit-card-reduced-two-dimensions.png)
 
@@ -247,17 +243,17 @@ pca fit: polyMathMatrix.
 principalComponents := pca transform: polyMathMatrix.
 
 
-"If we look at the elbow graph, we see that 9 clusters seems to be the best solution."
+"If we look at the elbow plot, we see that 9 clusters seems to be the best solution."
 kMeans := AIKMeans numberOfClusters: 9.
 kMeans fit: shuffledData.  
 
 clusters := kMeans clusters.
 
 "Get the principal components"
-xPrincipalComponent := principalComponents rows collect: [ :each | each first].
-yPrincipalComponent := principalComponents rows collect: [ :each | each second].
+firstPrincipalComponent := principalComponents rows collect: [ :each | each first].
+secondPrincipalComponent := principalComponents rows collect: [ :each | each second].
 
-"Graph to show the different groups that were found using the clustering algorithm"
+"Visualisation to show the different groups that were found using the clustering algorithm"
 
 colors := RSColorPalette qualitative dark28 range.
 
