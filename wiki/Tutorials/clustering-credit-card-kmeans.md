@@ -12,7 +12,7 @@ creditCardData := AIDatasets loadCreditCard.
 
 If we inspect (open Pharo Inspector) the DataFrame, we can see that there is 18 features for each client of the credit card company.
 
-<img src="./img/credit-card-dataset-inspector.png" height="350"/>
+<img src="./img/credit-card-dataset-inspector.png" height="450"/>
 
 
 Also, after inspecting the data, we can see that it contains nil fields, so we will replace them with zeros
