@@ -27,7 +27,17 @@ First, we load the boston housing dataset into the Pharo image.
 
 ```st
 "Loading the dataset"
-bostonHousingDataset := AIDatasets loadBostonHousing.
+data := AIDatasets loadBostonHousing.
+```
+
+```st
+"Deal with the empty columns"
+data
+    column: 'Rooms' 
+    put: (lilleHousesDatasets column: 'Rooms') replaceNilsWithAverage.
+data
+    toColumn: 'Rooms'
+    applyElementwise: [ :each | each asInteger ].
 ```
 
 Now, to train the machine model we need to separate the dataset into at least two parts: one for training and the other for testing it. We have already a library in Pharo that does that: [Random partitioner](https://github.com/pharo-ai/random-partitioner). It is already included be default if you load the Pharo Datasets library.
@@ -37,22 +47,22 @@ We will separate it into two sets: test and train. We need this to train the mod
 ```st
 "Dividing into test and training"
 partitioner := AIRandomPartitioner new.
-subsets := partitioner split: bostonHousingDataset withProportions: #(0.75 0.25).
-bostonHousingTrainDF := subsets first.
-bostonHousingTestDF := subsets second.
+subsets := partitioner split: data withProportions: #(0.75 0.25).
+trainData := subsets first.
+testData := subsets second.
 ```
 
 Then, we need to obtain the X (independent, input variables) and Y (dependent, output variable) for each one of the test and training sets.
 
 ```st
 "Separating between X and Y"
-bostonHousingTrainDF columnNames. "an OrderedCollection('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT' 'MEDV')"
+trainData columnNames. "an OrderedCollection('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT' 'MEDV')"
 
-xTrain := bostonHousingTrainDF columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT').
-yTrain := bostonHousingTrainDF column: 'MEDV'.
+xTrain := trainData columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT').
+yTrain := trainData column: 'MEDV'.
 
-xTest := bostonHousingTestDF columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' LSTAT ).
-yTest := bostonHousingTestDF column: 'MEDV'.
+xTest := testData columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' LSTAT ).
+yTest := testData column: 'MEDV'.
 ```
 
 Finally, as our linear regression model only accepts `SequenceableCollection` and not `DataFrame` objects (for now!), we need to convert the DataFrame into an array. We can do that only sending the message `asArray` or `asArrayOfRows`.
@@ -105,13 +115,13 @@ So, we just execute this part **before** partitioning the data.
 
 ```st
 "Normalizing the data frames"
-normalizedDF := bostonHousingDataset normalized.
+normalizedData := data normalized.
 ```
 
-Pay attention, now, as we want to use the normalized data, in the partitioning part we need to use the `normalizedDF` variable instead of the `bostonHousingDataset`.
+Pay attention, now, as we want to use the normalized data, in the partitioning part we need to use the `normalizedData` variable instead of `data`.
 
 ```st
-subsets := partitioner split: normalizedDF withProportions: #(0.75 0.25).
+subsets := partitioner split: normalizedData withProportions: #(0.75 0.25).
 ```
 
 ## Measuring the performance of the model
@@ -154,29 +164,29 @@ Do not forget that you need to install the libraries to this to work.
 
 ```st
 "Loading the dataset"
-bostonDataset := AIDatasets loadBostonHousing.
+data := AIDatasets loadBostonHousing.
 
 
 "Normalizing the data frames"
-normalizedDF := bostonDataset normalized.
+normalizedData := data normalized.
 
 
 "SEPARATING THE DATA"
 "Dividing into test and training"
 partitioner := AIRandomPartitioner new.
 subsets := partitioner split: normalizedDF withProportions: #(0.75 0.25).
-bostonHousingTrainDF := subsets first.
-bostonTestDF := subsets second.
+trainData := subsets first.
+testData := subsets second.
 
 
 "Separating between X and Y"
-bostonHousingTrainDF columnNames. "an OrderedCollection('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT' 'MEDV')"
+trainData columnNames. "an OrderedCollection('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT' 'MEDV')"
 
-xTrain := bostonHousingTrainDF columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT').
-yTrain := bostonHousingTrainDF column: 'MEDV'.
+xTrain := trainData columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT').
+yTrain := trainData column: 'MEDV'.
 
-xTest := bostonTestDF columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' LSTAT ).
-yTest := bostonTestDF column: 'MEDV'.
+xTest := testData columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' LSTAT ).
+yTest := testData column: 'MEDV'.
 
 
 "Converting the DataFrame into an array of arrays For using it in the linear model.
