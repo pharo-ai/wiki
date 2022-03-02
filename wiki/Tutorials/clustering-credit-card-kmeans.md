@@ -14,7 +14,6 @@ If we inspect (open Pharo Inspector) the DataFrame, we can see that there is 18 
 
 <img src="./img/credit-card-dataset-inspector.png" height="450"/>
 
-
 Also, after inspecting the data, we can see that it contains nil fields, so we will replace them with zeros
 
 ```st
@@ -65,7 +64,7 @@ We will use [Roassal 3](https://github.com/ObjectProfile/Roassal3) for doing the
 
 According to the elbow plot, we can see that the best number of cluster is nine clusters.
 
-![](./img/elbow-method-credit-card.png)
+<img src="./img/elbow-method-credit-card.png" height="450"/>
 
 Code for plotting the elbow plot.
 
