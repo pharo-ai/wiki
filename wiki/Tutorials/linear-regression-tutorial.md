@@ -34,7 +34,7 @@ data := AIDatasets loadBostonHousing.
 "Deal with the empty columns"
 data
     column: 'Rooms' 
-    put: (data column: 'Rooms') replaceNilsWithAverage.
+    transform: [ :column | column replaceNilsWithAverage ].
 data
     toColumn: 'Rooms'
     applyElementwise: [ :each | each asInteger ].
