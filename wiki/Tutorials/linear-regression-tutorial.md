@@ -1,5 +1,8 @@
 # Hands-On Linear Regression
 
+
+_If you don't have the library installed, you can refer to: [Getting Started page](../GettingStarted/GettingStarted.md)_
+
 Linear regression is a machine learning model that learns the linear dependencies between the independent variables and the dependent variable. It is capable of making predictions for previously unseen values once it has learned.
 
 Here we will use the renowned [Boston Housing dataset](https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html) to train the linear regression model. The Boston dataset that contains 13 parameters of a house, like its surface,per capita crime rate by town, etc and as an output the median value of owner-occupied homes in $1000's.
@@ -7,17 +10,6 @@ Here we will use the renowned [Boston Housing dataset](https://www.cs.toronto.ed
 First, we will load the dataset. Then, normalizing the data, to split between test and training datasets. After, training the logistic regression model and finally measuring its performance.
 
 <img src="img/workflow_linear_regression.png" width="900"/>
-
-If you have not done this yet, you can install the [pharo-ai](https://github.com/pharo-ai/ai) library by executing the following sctipt in your Pharo Playground:
-
-```st
-EpMonitor disableDuring: [
-    Metacello new
-        baseline: 'AIPharo';
-        repository: 'github://pharo-ai/ai/src';
-	onWarningLog;
-        load ]
-```
 
 ## Table of Contents  
 
