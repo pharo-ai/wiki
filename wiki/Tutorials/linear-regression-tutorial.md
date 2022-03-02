@@ -34,7 +34,7 @@ data := AIDatasets loadBostonHousing.
 "Deal with the empty columns"
 data
     column: 'Rooms' 
-    put: (lilleHousesDatasets column: 'Rooms') replaceNilsWithAverage.
+    put: (data column: 'Rooms') replaceNilsWithAverage.
 data
     toColumn: 'Rooms'
     applyElementwise: [ :each | each asInteger ].
@@ -164,7 +164,16 @@ Do not forget that you need to install the libraries to this to work.
 
 ```st
 "Loading the dataset"
-data := AIDatasets loadBostonHousing.
+data := AIDatasets loadLilleHousing.
+
+
+"Deal with the empty columns"
+data
+    column: 'Rooms' 
+    transform: [ :column | column replaceNilsWithAverage ].
+data
+    toColumn: 'Rooms'
+    applyElementwise: [ :each | each asInteger ].
 
 
 "Normalizing the data frames"
@@ -182,11 +191,11 @@ testData := subsets second.
 "Separating between X and Y"
 trainData columnNames. "an OrderedCollection('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT' 'MEDV')"
 
-xTrain := trainData columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT').
-yTrain := trainData column: 'MEDV'.
+xTrain := trainData columns: #(Area Rooms).
+yTrain := trainData column: 'Price'.
 
-xTest := testData columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' LSTAT ).
-yTest := testData column: 'MEDV'.
+xTest := testData columns: #(Area Rooms).
+yTest := testData column: 'Price'.
 
 
 "Converting the DataFrame into an array of arrays For using it in the linear model.
