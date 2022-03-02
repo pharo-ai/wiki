@@ -8,7 +8,16 @@ First, we will load the dataset. Then, normalizing the data, to split between te
 
 <img src="img/workflow_linear_regression.png" width="900"/>
 
-If you want to see the logistic regression exercise, this is the link.
+If you have not done this yet, you can install the [pharo-ai](https://github.com/pharo-ai/ai) library by executing the following sctipt in your Pharo Playground:
+
+```st
+EpMonitor disableDuring: [
+    Metacello new
+        baseline: 'AIPharo';
+        repository: 'github://pharo-ai/ai/src';
+	onWarningLog;
+        load ]
+```
 
 ## Table of Contents  
 
