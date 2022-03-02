@@ -220,7 +220,7 @@ plot ellipses doWithIndex: [ :e :i|
 clusteredDataChart canvas open.
 ```
 
-We see that the visualisation is very confusing. We have to keep in mind that the data has 18 dimensions, we plot it only using 2. So, we lost information. We need to find better ways of visualising the data. Also, we choose the principal components using information of around only 1/9 of the whole dataset. Finallly, it can be that the k-means algorithm may not be the best approach for this problem. This is only a teaching example.
+We have to keep in mind that the data has 18 dimensions, but we plot it only using 2. So, we lost information in terms of visualisation. Also, we choose the principal components using information of around only 1/9 of the whole dataset. Finallly, it can be that the k-means algorithm may not be the best approach for this problem.
 
 ![](./img/credit-card-reduced-two-dimensions.png)
 
