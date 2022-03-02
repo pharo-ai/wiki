@@ -222,7 +222,7 @@ clusteredDataChart canvas open.
 
 We have to keep in mind that the data has 18 dimensions, but we plot it only using 2. So, we lost information in terms of visualisation. Also, we choose the principal components using information of around only 1/9 of the whole dataset. Finallly, it can be that the k-means algorithm may not be the best approach for this problem.
 
-![](./img/credit-card-reduced-two-dimensions.png)
+<img src="./img/credit-card-reduced-two-dimensions.png" height="450"/>
 
 ## All the dimensionality reduction code
 
