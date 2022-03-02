@@ -174,7 +174,7 @@ normalizedData := data normalized.
 "SEPARATING THE DATA"
 "Dividing into test and training"
 partitioner := AIRandomPartitioner new.
-subsets := partitioner split: normalizedDF withProportions: #(0.75 0.25).
+subsets := partitioner split: normalizedData withProportions: #(0.75 0.25).
 trainData := subsets first.
 testData := subsets second.
 
