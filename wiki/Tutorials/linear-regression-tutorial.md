@@ -189,7 +189,7 @@ testData := subsets second.
 
 
 "Separating between X and Y"
-trainData columnNames. "an OrderedCollection('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT' 'MEDV')"
+trainData columnNames.  "an OrderedCollection('Area' 'Rooms' 'Price')"
 
 xTrain := trainData columns: #(Area Rooms).
 yTrain := trainData column: 'Price'.
