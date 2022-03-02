@@ -12,13 +12,13 @@ iris := AIDatasets loadIris.
 
 If we inspect the variable (open the Pharo Inspector) you will see that you have 4 column names.
 
-![](./img/data-inspector-iris.png)
+<img src="./img/data-inspector-iris.png" height="450"/>
 
 For plotting the data, we will use Roassal. In this tutorial we will not show the code, for simplicity purpous. You can see [their webpage](https://github.com/ObjectProfile/Roassal3).
 
 For this example, we will use only two features of the flower: `petal length (cm)` and `petal width (cm)`. 
 
-![](./img/petal-graph-roassal-kmeans.png)
+<img src="./img/petal-graph-roassal-kmeans.png" height="450"/>
 
 With the data plotted in this way, we can see, it seems the data can be clustered in two or three groups. So, we will keep only those.
 
@@ -47,7 +47,7 @@ clusters := kMeans clusters.
 
 For better understanding the data, we can plot each data point with its corresponding group.
 
-![](./img/kmeans-data-clustered-two-clusters.png)
+<img src="./img/kmeans-data-clustered-two-clusters.png" height="450"/>
 
 There is one point that it looks likat it is misplaced. We can try cluster the data into three groups.
 
@@ -62,11 +62,11 @@ We already know, by looking the dataset, that there is only three different grou
 
 This is the result of the cluster.
 
-![](./img/kmeans-data-clustered-three-clusters.png)
+<img src="./img/kmeans-data-clustered-three-clusters.png" height="450"/>
 
 If we look at the real data plotted, we can see that there is five points that were assigned to the wrong cluster.
 
-![](./img/kmeans-data-real.png)
+<img src="./img/kmeans-data-real.png" height="450"/>
 
 ## All the code:
 
