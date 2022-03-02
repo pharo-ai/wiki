@@ -95,12 +95,12 @@ elbowChart build.
 elbowChart canvas open.
 ```
 
-If we look at the elbow plot, we it seems that the best number of clusters is 9. Note that you may have not the exact same results. 
+If we look at the elbow plot, we it seems that the best number of clusters is 8. Note that you may have not the exact same results. 
 
 We train the algorithm again with that number of clusters.
 
 ```st
-kMeans := AIKMeans numberOfClusters: 9.
+kMeans := AIKMeans numberOfClusters: 8.
 kMeans fit: dataAsArray.  
 
 clusters := kMeans clusters.
@@ -150,8 +150,8 @@ numberOfClustersCollection do: [ :numberOfClusters |
 	kMeans fit: dataAsArray.  
 	inertias add: (kMeans score: dataAsArray) ].
 
-"If we look at the elbow plot, we see that 9 clusters seems to be the best solution."
-kMeans := AIKMeans numberOfClusters: 9.
+"If we look at the elbow plot, we see that 8 clusters seems to be the best solution."
+kMeans := AIKMeans numberOfClusters: 8.
 kMeans fit: dataAsArray.  
 
 clusters := kMeans clusters.
@@ -191,10 +191,10 @@ firstPrincipalComponent := principalComponents rows collect: [ :each | each firs
 secondPrincipalComponent := principalComponents rows collect: [ :each | each second].
 ```
 
-As we discussed in the last part, we see that 9 is the number of clusters that work the best. We train again our model.
+As we discussed in the last part, we see that 8 is the number of clusters that work the best. We train again our model.
 
 ```st
-kMeans := AIKMeans numberOfClusters: 9.
+kMeans := AIKMeans numberOfClusters: 8.
 kMeans fit: shuffledData.  
 
 clusters := kMeans clusters.
@@ -206,7 +206,7 @@ We use those `x` and `y` to plot the data with its different groups.
 colors := RSColorPalette qualitative dark28 range.
 
 clusteredDataChart :=RSChart new.
-clusteredDataChart addPlot: (plot := RSScatterPlot new x: x y: y ).
+clusteredDataChart addPlot: (plot := RSScatterPlot new x: firstPrincipalComponent y: secondPrincipalComponent ).
 clusteredDataChart 
     xlabel: 'most representative feature';
     ylabel: 'second most representative feature';
@@ -238,8 +238,8 @@ pca fit: polyMathMatrix.
 principalComponents := pca transform: polyMathMatrix.
 
 
-"If we look at the elbow plot, we see that 9 clusters seems to be the best solution."
-kMeans := AIKMeans numberOfClusters: 9.
+"If we look at the elbow plot, we see that 8 clusters seems to be the best solution."
+kMeans := AIKMeans numberOfClusters: 8.
 kMeans fit: shuffledData.  
 
 clusters := kMeans clusters.
@@ -253,7 +253,7 @@ secondPrincipalComponent := principalComponents rows collect: [ :each | each sec
 colors := RSColorPalette qualitative dark28 range.
 
 clusteredDataChart :=RSChart new.
-clusteredDataChart addPlot: (plot := RSScatterPlot new x: x y: y ).
+clusteredDataChart addPlot: (plot := RSScatterPlot new x: firstPrincipalComponent y: secondPrincipalComponent ).
 clusteredDataChart 
     xlabel: 'most representative feature';
     ylabel: 'second most representative feature';
