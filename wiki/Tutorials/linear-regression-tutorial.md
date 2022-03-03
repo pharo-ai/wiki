@@ -30,16 +30,6 @@ First, we load the boston housing dataset into the Pharo image.
 data := AIDatasets loadBostonHousing.
 ```
 
-```st
-"Deal with the empty columns"
-data
-    column: 'Rooms' 
-    transform: [ :column | column replaceNilsWithAverage ].
-data
-    toColumn: 'Rooms'
-    applyElementwise: [ :each | each asInteger ].
-```
-
 Now, to train the machine model we need to separate the dataset into at least two parts: one for training and the other for testing it. We have already a library in Pharo that does that: [Random partitioner](https://github.com/pharo-ai/random-partitioner). It is already included be default if you load the Pharo Datasets library.
 
 We will separate it into two sets: test and train. We need this to train the model and after to see how precisely the model is predicting.
@@ -154,8 +144,6 @@ metric := AIR2Score new.
 r2Score "0.7382841848355153" := (metric computeForActual: yTest predicted: yPredicted) asFloat.
 ```
 
-We have obtained a 74% as a coefficient of determination.
-
 ## All the code
 
 Here is the complete workflow of the exercise in which we have worked today. You can run everything in a Pharo Playground to play with the model.
@@ -164,16 +152,7 @@ Do not forget that you need to install the libraries to this to work.
 
 ```st
 "Loading the dataset"
-data := AIDatasets loadLilleHousing.
-
-
-"Deal with the empty columns"
-data
-    column: 'Rooms' 
-    transform: [ :column | column replaceNilsWithAverage ].
-data
-    toColumn: 'Rooms'
-    applyElementwise: [ :each | each asInteger ].
+data := AIDatasets loadBostonHousing.
 
 
 "Normalizing the data frames"
