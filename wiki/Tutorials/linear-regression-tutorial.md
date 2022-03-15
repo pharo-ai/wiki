@@ -82,19 +82,19 @@ linearRegression := AILinearRegression
 linearRegression fitX: xTrain y: yTrain.
 ```
 
-If you try to run all the code that we wrote until now, you most likely saw an exception with the message: `The model is starting to diverge. Try setting up a smaller learning rate or normalizing your data.` It is normal! Usually, a model starts to diverge when the data is not normalized or the learning rate is too high. In this case is because the data is not normalized.
+If you try to run all the code that we wrote until now, you most likely saw an exception with the message: `The model is starting to diverge. Try setting up a smaller learning rate or normalizing your data.` It is normal! Usually, a model starts to diverge when the data is not normalized or the learning rate is too high. In this case it is because the data is not normalized.
 
 ## About normalization
 
 ### What is normalization?
 
-In statistics and machine learning, normalization is the process which transforms multiple columns of a dataset to make them numerically consistent with each other (e.g. be on the same scale) but in the same time preserve the valuable information stored in these columns.
+In statistics and machine learning, normalization is the process which transforms multiple columns of a dataset to make them numerically consistent with each other (e.g. be on the same scale) but at the same time preserve the valuable information stored in these columns.
 
-For example, we have a table that the Salaries that a person earns according to some criteria. The values of variable Years since PhD are in the range of `[1 .. 56]` and the salaries `[57,800 .. 231,545]`. If we plot the two variables we see:
+For example, we have a table containing the Salaries that a person earns according to some criteria. The values of variable Years since PhD are in the range of `[1 .. 56]` and the salaries `[57,800 .. 231,545]`. If we plot the two variables we see:
 
 <img src="img/normalization_comparison.png"  width=650 height=350 alt="Source: https://blog.oleks.fr/normalization">
 
-So, the big difference between the range of the values can affect out model.
+So, the big difference between the range of the values can affect our model.
 
 If you want to read more about normalization Oleks has a [nice blog post](https://blog.oleks.fr/normalization) about it.
 >Part of the text for explaining normalization were extracted from that post.
@@ -116,7 +116,7 @@ subsets := partitioner split: normalizedData withProportions: #(0.75 0.25).
 
 ## Measuring the performance of the model
 
-Now we can make predictions for previously unseen values: estimate the price of a new house based in its parameters. To make a prediction we need to send the message `predict:` to the linear regression model with the data that we want to predict as an argument.
+Now we can make predictions for previously unseen values: estimate the price of a new house based on its parameters. To make a prediction we need to send the message `predict:` to the linear regression model with the data that we want to predict as an argument.
 
 ```st
 yPredicted := linearRegression predict: xTest.
