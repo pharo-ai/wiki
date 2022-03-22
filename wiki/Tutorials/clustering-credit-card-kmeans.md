@@ -136,7 +136,7 @@ creditCardData
 ""
 
 "Convert the data from DataFrame to Array and take 1000 random elements to speed up."
-dataAsArray := creditCardData asArrayOfRows shuffled first: 1000..
+dataAsArray := creditCardData asArrayOfRows shuffled first: 1000.
 
 "We train the model with 12 clusters"
 numberOfClustersCollection := 2 to: 12.
