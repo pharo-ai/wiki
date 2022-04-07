@@ -168,13 +168,13 @@ testData := subsets second.
 
 
 "Separating between X and Y"
-trainData columnNames.  "an OrderedCollection('Area' 'Rooms' 'Price')"
+trainData columnNames. "an OrderedCollection('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT' 'MEDV')"
 
-xTrain := trainData columns: #(Area Rooms).
-yTrain := trainData column: 'Price'.
+xTrain := trainData columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' 'LSTAT').
+yTrain := trainData column: 'MEDV'.
 
-xTest := testData columns: #(Area Rooms).
-yTest := testData column: 'Price'.
+xTest := testData columns: #('CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO' 'B' LSTAT ).
+yTest := testData column: 'MEDV'.
 
 
 "Converting the DataFrame into an array of arrays For using it in the linear model.
