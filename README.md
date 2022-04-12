@@ -51,7 +51,7 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 ## Data Preprocessing
 
-- [Normalization](./wiki/Logistic-Regression)
+- [Normalization](./wiki/DataExploration/Normalization.md)
 - [Random Partitioner for Datasets](./wiki/DataExploration/Random-Partitioner.md)
 
 ## Data Mining
