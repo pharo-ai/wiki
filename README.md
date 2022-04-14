@@ -45,7 +45,7 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 #### Clustering
 
-- K Means
+- [K Means](./wiki/Clustering/k-means.md)
 - Hierarchical Clustering (WIP)
 - Gaussian Mixture Model (WIP)
 
