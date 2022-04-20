@@ -21,7 +21,7 @@ First, we will load the dataset. Then, normalizing the data, to split between te
 
 ## Preprocessing the data
 
-We will use [Pharo Datasets](https://github.com/pharo-ai/Datasets) to load the dataset into the Pharo image. The library contains several datasets ready to be loaded. Pharo Datasets will return a [Pharo DataFrame](https://github.com/PolyMathOrg/DataFrame) object. To install Pharo Datasets you only need to run the code sniped of the Metacello script available on the [README](https://github.com/pharo-ai/Datasets)
+We will use [Pharo Datasets](https://github.com/pharo-ai/datasets) to load the dataset into the Pharo image. The library contains several datasets ready to be loaded. Pharo Datasets will return a [Pharo DataFrame](https://github.com/PolyMathOrg/DataFrame) object. To install Pharo Datasets you only need to run the code sniped of the Metacello script available on the [README](https://github.com/pharo-ai/Datasets)
 
 First, we load the boston housing dataset into the Pharo image.
 
