@@ -22,15 +22,15 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 ## Tutorials
 
-#### Linear Regression
+##### Linear Regression
 
 - [Using Linear Regression for predicting the price of a house using the Boston Dataset](./wiki/Tutorials/linear-regression-tutorial.md)
 
-#### Logistic regression
+##### Logistic regression
 
 - [Using Logistic Regression for saying if someone has diabetes based on its physical conditions](./wiki/Tutorials/logistic-regression-tutorial.md)
 
-#### Clustering
+##### Clustering
 
 - [Using K-Means Clustering Machine Learning Algorithm - Simple Example](./wiki/Tutorials/clustering-simple-example.md)
 - [Clustering Users of a Credit Card Company using the K-Means Algorithm](./wiki/Tutorials/clustering-credit-card-kmeans.md)
@@ -41,18 +41,18 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 ## Machine Learning
 
-#### Regression
+##### Regression
 
 - [Linear regression](./wiki/MachineLearning/Linear-Regression.md)
 - [Logistic regression](./wiki/MachineLearning/Logistic-Regression.md)
 
-#### Classification
+##### Classification
 
 - Decision Tree Model
 - Naive Bayes Classifier
 - K-Nearest Neighbours (WIP)
 
-#### Clustering
+##### Clustering
 
 - [K Means](./wiki/Clustering/k-means.md)
 - Hierarchical Clustering (WIP)
