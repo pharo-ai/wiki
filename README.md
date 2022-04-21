@@ -2,7 +2,8 @@
 
 This is the Pharo-AI Wiki. The goal of this wiki is to provide documentation and tutorials to help people start using our Pharo AI/Machine-Learning libraries.
 
-See [Getting Started](./wiki/GettingStarted/GettingStarted.md) page.
+- [Getting Started page](./wiki/GettingStarted/GettingStarted.md).
+- [Contributing guide](./wiki/GettingStarted/Contributing.md)
 
 Keep in mind that the wiki and pharo-ai is right now under construction version so not all the algorithms will be documented or with all the functionalities that we would like to have.  Nevertheless, all the things that are documented here had been revised and are working.
 
@@ -21,8 +22,14 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 ## Tutorials
 
+### Linear Regression
+
 - [Using Linear Regression for predicting the price of a house using the Boston Dataset](./wiki/Tutorials/linear-regression-tutorial.md)
+
+### Logistic regression
 - [Using Logistic Regression for saying if someone has diabetes based on its physical conditions](./wiki/Tutorials/logistic-regression-tutorial.md)
+
+### Clustering
 - [Using K-Means Clustering Machine Learning Algorithm - Simple Example](./wiki/Tutorials/clustering-simple-example.md)
 - [Clustering Users of a Credit Card Company using the K-Means Algorithm](./wiki/Tutorials/clustering-credit-card-kmeans.md)
 
