@@ -22,6 +22,7 @@ _Note that we are currently working on this project so we will be implementing m
   - [Manhattan distance](#manhattan-distance), also known as City Block Distance.
   - [Cosine similarity](#cosine-similarity), note this is not the same as TF-IDF.
   - [Levenshtein distance](#levenshtein-distance)
+  - [Restricted Damerau-Levenshtein](#restricted-damerau-levenshtein-distance)
   - [Kendall Tau distance](#kendall-tau-distance) (with and without normalization)
   - [Szymkiewicz-Simpson coefficient](#szymkiewicz-Simpson-coefficient)
   - [Shingles similarity](#shingles-similarity)
@@ -87,6 +88,21 @@ The Levenshtein distance is a string metric for measuring the difference between
 levenshteinDistance := AILevenshteinDistance new.
 levenshteinDistance distanceBetween: 'zork' and: 'fork' "1"
 ```
+### Restricted Damerau-Levenshtein distance
+
+The restricted Damerau-Lavenshtein distance, also known as the optimal string alignment distance or restricted edit distance is a string metric for measuring the edit distance between two sequences.
+
+This distance differs from the classical Levenshtein distance by including transpositions (swap) among its allowable operations in addition to the three classical single-character edit operations (insertions, deletions and substitutions).
+
+How to use it on Playground:
+
+```st
+restrictedDamerauLevenshtein := AIRestrictedDamerauLevenshteinDistance new.
+restrictedDamerauLevenshtein distanceBetween: 'an act' and: 'a cat' "2".
+```
+Brief explanation :
+
+To go from `'an act'` to `'a cat'` we need to add an `'n'` after the `'a'` and swap the `'ac'` into `'ca'` (instead of substituting `'a'` for `'c'` and `'c` for `'a'`). So we did 2 changes, that's why when we press command G (CMD+G) on the code above we see the value of 2.
 
 ### Kendall Tau distance
 
