@@ -30,22 +30,19 @@ _Note that we are currently working on this project so we will be implementing m
 
 All the distances are implemented the strategy design pattern. They have the same API.
 
-They are two ways of calculating the distance.
+For use them, send the message `distanceBetween: and:`.
 
-One is to use the method `distanceTo: aCollection using: aDistance`.
-
-Or to use `aDistance distanceBetween: xCollection and: yCollection`
+```st
+aDistance distanceBetween: xCollection and: yCollection
+```
 
 ### Euclidean norm
 
 The Euclidean distance between two points in Euclidean space is the length of a line segment between the two points. It can be calculated from the Cartesian coordinates of the points using the Pythagorean theorem, therefore occasionally being called the Pythagorean distance.
 
 ```st
-#( 0 3 4 5 ) distanceTo: #( 7 6 3 -1 ) using: AIEuclideanDistance new. "9.746794344808963"
-```
-
-```st
 euclideanDistance := AIEuclideanDistance new.
+
 euclideanDistance distanceBetween: #( 0 3 4 5 ) and: #( 7 6 3 -1 ). "9.746794344808963"
 ```
 
@@ -56,11 +53,8 @@ In the Manhattan distance, the Euclidean geometry is replaced by a new metric in
 More formally, we can define the Manhattan distance, also known as the L1-distance, between two points in an Euclidean space with fixed Cartesian coordinate system is defined as the sum of the lengths of the projections of the line segment between the points onto the coordinate axes.
 
 ```st
-#(10 20 10) distanceTo: #(10 20 20) using: AIManhattanDistance new "10".
-```
-
-```st
 manhattanDistance := AIManhattanDistance new.
+
 manhattanDistance distanceBetween: #( 10 20 10 ) and: #( 10 20 20 ). "10"
 ```
 
@@ -69,11 +63,8 @@ manhattanDistance distanceBetween: #( 10 20 10 ) and: #( 10 20 20 ). "10"
 Cosine similarity is a metric used to determine how similar the documents are irrespective of their size. Mathematically, it measures the cosine of the angle between two vectors projected in a multi-dimensional space.
 
 ```st
-#(3 45 7 2) distanceTo: #(2 54 13 15) using: AICosineSimilarityDistance new. "0.9722842517123499"
-```
-
-```st
 cosineDistance := AICosineSimilarityDistance new.
+
 cosineDistance distanceBetween: #(3 45 7 2) and: #(2 54 13 15) "0.9722842517123499"
 ```
 
@@ -82,11 +73,8 @@ cosineDistance distanceBetween: #(3 45 7 2) and: #(2 54 13 15) "0.97228425171234
 The Levenshtein distance is a string metric for measuring the difference between two sequences. Informally, the Levenshtein distance between two words is the minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other.
 
 ```st
-'zork' distanceTo: 'fork' using: AILevenshteinDistance new.
-```
-
-```st
 levenshteinDistance := AILevenshteinDistance new.
+
 levenshteinDistance distanceBetween: 'zork' and: 'fork' "1"
 ```
 ### Restricted Damerau-Levenshtein distance
@@ -99,8 +87,10 @@ How to use it on Playground:
 
 ```st
 restrictedDamerauLevenshtein := AIRestrictedDamerauLevenshteinDistance new.
+
 restrictedDamerauLevenshtein distanceBetween: 'an act' and: 'a cat' "2".
 ```
+
 Brief explanation :
 
 To go from `'an act'` to `'a cat'` we need to add an `'n'` after the `'a'` and swap the `'ac'` into `'ca'` (instead of substituting `'a'` for `'c'` and `'c` for `'a'`). So in total we did 2 changes, that's why when we press command G (CMD+G) on the code above we have the value of 2.
@@ -114,18 +104,19 @@ How to use it on Playground:
 
 ```st
 DamerauLevenshtein := AIDamerauLevenshteinDistance new.
+
 DamerauLevenshtein distanceBetween: 'a cat' and: 'a abct' "2".
 ```
+
 Brief explanation :
 
 To go from `'a cat'` to `'a abct'` we need to swap the `'ac'` into `'ca'` (instead of substituting `'a'` for `'c'` and `'c` for `'a'`) and add `'b'` between the edited substring. This last edit wouldn't be possible  because that would require the substring to be edited more than once, which is not allowed in OSA(optimal string alignment). So in total we did 2 changes, that's why when we press command G (CMD+G) on the code above we have the value of 2.
-
 
 ### Kendall Tau distance
 
 The Kendall tau rank distance is a metric that counts the number of pairwise disagreements between two ranking lists. The larger the distance, the more dissimilar the two lists are.
 
-Kendall tau distance is also called bubble-sort distance since it is equivalent to the number of swaps that the bubble sort algorithm would take to place one list in the same order as the other list. The Kendall tau distance was created by Maurice Kendall. 
+Kendall tau distance is also called bubble-sort distance since it is equivalent to the number of swaps that the bubble sort algorithm would take to place one list in the same order as the other list. The Kendall tau distance was created by Maurice Kendall.
 
 This distance a a little special. The distance itself is the number of discordant pairs that there is between the two ranked lists. But, often the result is normalized. In this implementation we normalize the distance by default. To not normalize the result you must send the message `normalizeResult: false`.
 
@@ -151,19 +142,12 @@ Where P is the number of concordant pairs, Q the number of discordant pairs. n i
 Example with normalization:
 
 ```st
-#(1 2 3 4 5) distanceTo: #(3 4 1 2 5) using: AIKendallTauDistance new. "(1/5)"
-```
-
-```st
 kendallTauDistance := AIKendallTauDistance new.
+
 kendallTauDistance distanceBetween: #( 1 2 3 4 5 ) and: #(3 4 1 2 5 ). "(1/5)"
 ```
 
 Example using another normalizer:
-
-```st
-#(1 2 3 4 5) distanceTo: #(3 4 1 2 5) using: AIKendallTauDistance new. "(1/5)"
-```
 
 ```st
 kendallTauDistance := AIKendallTauDistance new.
@@ -173,10 +157,6 @@ kendallTauDistance distanceBetween: #( 1 2 3 4 5 ) and: #(3 4 1 2 5 ). "(1/5)"
 ```
 
 Example without normalization:
-
-```st
-#(1 2 3 4 5) distanceTo: #(3 4 1 2 5) using: AIKendallTauDistance new. "(1/5)"
-```
 
 ```st
 kendallTauDistance := AIKendallTauDistance new.
@@ -190,13 +170,8 @@ kendallTauDistance distanceBetween: #( 1 2 3 4 5 ) and: #(3 4 1 2 5 ). "4"
 Also called overlap coefficient, is a similarity measure that measures the overlap between two finite sets. As this distance is conceptually only for sets, it is defined only in the `Set` class. So, we method is expecting an instance of `Set` as an argument.
 
 ```st
-#( 1000 2 0.5 3 6 88 99 ) asSet
-	distanceTo: #( 1000 0.5 99 ) asSet
-	using: AISzymkiewiczSimpsonDistance new. "1.0"
-```
-
-```st
 szymkiewiczSimpsonDistance := AISzymkiewiczSimpsonDistance new.
+
 szymkiewiczSimpsonDistance
 	distanceBetween: #( 1000 2 0.5 3 6 88 99 ) asSet
 	and: #( 1000 0.5 99 ) asSet. "1.0"
@@ -213,19 +188,7 @@ shinglesSimilarity := AIShinglesSimilarity
   slidingWindowSize: 2
   maxEncodingSize: 5.
 
-#(lorem ipsum dolor sit amet)
-  distanceTo: #(hello world lorem ipsum)
-  using: shinglesSimilarity "(7/24)"
-```
-
-```st
-shinglesSimilarity := AIShinglesSimilarity
-	slidingWindowSize: 2
-	maxEncodingSize: 5.
-
-#(lorem ipsum dolor sit amet)
-	distanceTo: #(hello world lorem ipsum)
-	using: shinglesSimilarity "(7/24)"
+shinglesSimilarity distanceBetween: #(lorem ipsum dolor sit amet) and: #(hello world lorem ipsum) "(7/24)"
 ```
 
 `slidingWindowSize` and `maxEncodingSize` have default values. Note that the result will change acording to the values that are set.
@@ -233,15 +196,5 @@ shinglesSimilarity := AIShinglesSimilarity
 ```st
 shinglesSimilarity := AIShinglesSimilarity new.
 
-#(lorem ipsum dolor sit amet)
-  distanceTo: #(hello world lorem ipsum)
-  using: shinglesSimilarity "0"
-```
-
-```st
-shinglesSimilarity := AIShinglesSimilarity new.
-
-#(lorem ipsum dolor sit amet)
-	distanceTo: #(hello world lorem ipsum)
-	using: shinglesSimilarity "0"
+shinglesSimilarity distanceBetween: #(lorem ipsum dolor sit amet) and: #(hello world lorem ipsum) "0"
 ```
