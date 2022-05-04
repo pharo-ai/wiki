@@ -23,6 +23,7 @@ _Note that we are currently working on this project so we will be implementing m
   - [Cosine similarity](#cosine-similarity), note this is not the same as TF-IDF.
   - [Levenshtein distance](#levenshtein-distance)
   - [Restricted Damerau-Levenshtein](#restricted-damerau-levenshtein-distance)
+  - [Damerau-Levenshtein](#damerau-levenshtein-distance)
   - [Kendall Tau distance](#kendall-tau-distance) (with and without normalization)
   - [Szymkiewicz-Simpson coefficient](#szymkiewicz-Simpson-coefficient)
   - [Shingles similarity](#shingles-similarity)
@@ -102,7 +103,23 @@ restrictedDamerauLevenshtein distanceBetween: 'an act' and: 'a cat' "2".
 ```
 Brief explanation :
 
-To go from `'an act'` to `'a cat'` we need to add an `'n'` after the `'a'` and swap the `'ac'` into `'ca'` (instead of substituting `'a'` for `'c'` and `'c` for `'a'`). So we did 2 changes, that's why when we press command G (CMD+G) on the code above we see the value of 2.
+To go from `'an act'` to `'a cat'` we need to add an `'n'` after the `'a'` and swap the `'ac'` into `'ca'` (instead of substituting `'a'` for `'c'` and `'c` for `'a'`). So in total we did 2 changes, that's why when we press command G (CMD+G) on the code above we have the value of 2.
+
+### Damerau-Levenshtein distance
+
+The Damerau-Lavenshtein distance is a string metric for measuring the edit distance between two sequences.
+The difference between this distance and the restricted Damerau-Levenshtein distance consists in that the restricted one computes the number of edit operations needed to make the strings equal under the condition that no substring is edited more than once, *whereas this algorithm presents no such restriction*.
+
+How to use it on Playground:
+
+```st
+DamerauLevenshtein := AIDamerauLevenshteinDistance new.
+DamerauLevenshtein distanceBetween: 'a cat' and: 'a abct' "2".
+```
+Brief explanation :
+
+To go from `'a cat'` to `'a abct'` we need to swap the `'ac'` into `'ca'` (instead of substituting `'a'` for `'c'` and `'c` for `'a'`) and add `'b'` between the edited substring. This last edit wouldn't be possible  because that would require the substring to be edited more than once, which is not allowed in OSA(optimal string alignment). So in total we did 2 changes, that's why when we press command G (CMD+G) on the code above we have the value of 2.
+
 
 ### Kendall Tau distance
 
