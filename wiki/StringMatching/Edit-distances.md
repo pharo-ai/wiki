@@ -23,6 +23,7 @@ _Note that we are currently working on this project so we will be implementing m
   - [Cosine similarity](#cosine-similarity), note this is not the same as TF-IDF.
   - [Levenshtein distance](#levenshtein-distance)
   - [Restricted Damerau-Levenshtein](#restricted-damerau-levenshtein-distance)
+  - [Damerau-Levenshtein](#damerau-levenshtein-distance)
   - [Kendall Tau distance](#kendall-tau-distance) (with and without normalization)
   - [Szymkiewicz-Simpson coefficient](#szymkiewicz-Simpson-coefficient)
   - [Shingles similarity](#shingles-similarity)
@@ -35,7 +36,7 @@ One is to use the method `distanceTo: aCollection using: aDistance`.
 
 Or to use `aDistance distanceBetween: xCollection and: yCollection`
 
-### Euclidean norm
+### `Euclidean norm`
 
 The Euclidean distance between two points in Euclidean space is the length of a line segment between the two points. It can be calculated from the Cartesian coordinates of the points using the Pythagorean theorem, therefore occasionally being called the Pythagorean distance.
 
@@ -48,7 +49,7 @@ euclideanDistance := AIEuclideanDistance new.
 euclideanDistance distanceBetween: #( 0 3 4 5 ) and: #( 7 6 3 -1 ). "9.746794344808963"
 ```
 
-### Manhattan distance
+### `Manhattan distance`
 
 In the Manhattan distance, the Euclidean geometry is replaced by a new metric in which the distance between two points is the sum of the (absolute) differences of their coordinates.
 
@@ -63,7 +64,7 @@ manhattanDistance := AIManhattanDistance new.
 manhattanDistance distanceBetween: #( 10 20 10 ) and: #( 10 20 20 ). "10"
 ```
 
-### Cosine similarity
+### `Cosine similarity`
 
 Cosine similarity is a metric used to determine how similar the documents are irrespective of their size. Mathematically, it measures the cosine of the angle between two vectors projected in a multi-dimensional space.
 
@@ -76,7 +77,7 @@ cosineDistance := AICosineSimilarityDistance new.
 cosineDistance distanceBetween: #(3 45 7 2) and: #(2 54 13 15) "0.9722842517123499"
 ```
 
-### Levenshtein distance
+### `Levenshtein distance`
 
 The Levenshtein distance is a string metric for measuring the difference between two sequences. Informally, the Levenshtein distance between two words is the minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other.
 
@@ -88,7 +89,7 @@ The Levenshtein distance is a string metric for measuring the difference between
 levenshteinDistance := AILevenshteinDistance new.
 levenshteinDistance distanceBetween: 'zork' and: 'fork' "1"
 ```
-### Restricted Damerau-Levenshtein distance
+### `Restricted Damerau-Levenshtein distance`
 
 The restricted Damerau-Lavenshtein distance, also known as the optimal string alignment distance or restricted edit distance is a string metric for measuring the edit distance between two sequences.
 
@@ -102,9 +103,25 @@ restrictedDamerauLevenshtein distanceBetween: 'an act' and: 'a cat' "2".
 ```
 Brief explanation :
 
-To go from `'an act'` to `'a cat'` we need to add an `'n'` after the `'a'` and swap the `'ac'` into `'ca'` (instead of substituting `'a'` for `'c'` and `'c` for `'a'`). So we did 2 changes, that's why when we press command G (CMD+G) on the code above we see the value of 2.
+To go from `'an act'` to `'a cat'` we need to add an `'n'` after the `'a'` and swap the `'ac'` into `'ca'` (instead of substituting `'a'` for `'c'` and `'c` for `'a'`). So in total we did 2 changes, that's why when we press command G (CMD+G) on the code above we have the value of 2.
 
-### Kendall Tau distance
+### `Damerau-Levenshtein distance`
+
+The Damerau-Lavenshtein distance is a string metric for measuring the edit distance between two sequences.
+The difference between this distance and the restricted Damerau-Levenshtein distance consists in that the restricted one computes the number of edit operations needed to make the strings equal under the condition that no substring is edited more than once, *whereas this algorithm presents no such restriction*.
+
+How to use it on Playground:
+
+```st
+DamerauLevenshtein := AIDamerauLevenshteinDistance new.
+DamerauLevenshtein distanceBetween: 'a cat' and: 'a abct' "2".
+```
+Brief explanation :
+
+To go from `'a cat'` to `'a abct'` we need to swap the `'ac'` into `'ca'` (instead of substituting `'a'` for `'c'` and `'c` for `'a'`) and add `'b'` between the edited substring. This last edit wouldn't be possible  because that would require the substring to be edited more than once, which is not allowed in OSA(optimal string alignment). So in total we did 2 changes, that's why when we press command G (CMD+G) on the code above we have the value of 2.
+
+
+### `Kendall Tau distance`
 
 The Kendall tau rank distance is a metric that counts the number of pairwise disagreements between two ranking lists. The larger the distance, the more dissimilar the two lists are.
 
@@ -168,7 +185,7 @@ kendallTauDistance normalizeResult: false.
 kendallTauDistance distanceBetween: #( 1 2 3 4 5 ) and: #(3 4 1 2 5 ). "4"
 ```
 
-### Szymkiewicz-Simpson coefficient
+### `Szymkiewicz-Simpson coefficient`
 
 Also called overlap coefficient, is a similarity measure that measures the overlap between two finite sets. As this distance is conceptually only for sets, it is defined only in the `Set` class. So, we method is expecting an instance of `Set` as an argument.
 
@@ -185,7 +202,7 @@ szymkiewiczSimpsonDistance
 	and: #( 1000 0.5 99 ) asSet. "1.0"
 ```
 
-### Shingles similarity
+### `Shingles similarity`
 
 A string similarity metric based on Shingles encoding [1]. It is well suited for detecting strings that underwent small modifications. Shingles encoding changes a little when string changes a little.
 
