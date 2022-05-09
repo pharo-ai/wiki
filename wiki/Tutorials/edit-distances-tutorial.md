@@ -15,11 +15,19 @@ Also, Edit Distance has properties of dynamic programming because the basic prin
 
  #  How does edit distance algorithm works ? 
 
- The idea is to build a distance matrix. Here we're gonna show the progress of the retricted Damerau-Levenshtein and the full Damerau-Levenshtein algorithm. By explaining these two algorithms you will understand the Levenshtein algorithm as well since they are based on this last.
+ The idea is to build a distance matrix. Here we're going to show the progress of the retricted Damerau-Levenshtein and the full Damerau-Levenshtein algorithm. By explaining these two algorithms you will understand the Levenshtein algorithm as well since they are based on this last one.
 
 ### Restricted Damerau-Levenshtein distance :  
 
 For 2 words, such as 'a cat' and 'an act', a matrix of size 5x6 is created as shown in the next figure. Note that the row and column surrounded by purple are not part of the matrix they are just added for clarity. 
+
+For calculating the cost of each cell we procede by using this equation :
+
+ ![](./img/formuleRDL.png)   
+
+We can represent this equation with the matrix bellow. Note that the min caculated is represented by the red arrows.
+
+
 
 ![](./img/RDL.png)
 
@@ -83,7 +91,7 @@ Below, we show two different pairs of long local alignments of a single pair of 
 
 
 ### Why sequence alignment?
-•  Assembling fragments to sequence DNA
+•  Assembling fragments to sequence DNA  
 •  Compare individuals to looking for mutations
 
 
