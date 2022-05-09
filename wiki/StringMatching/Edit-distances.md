@@ -6,10 +6,10 @@ Edit distance is a way of quantifying how dissimilar two strings are to one anot
 
 Edit distances find applications in natural language processing, where automatic spelling correction can determine candidate corrections for a misspelled word by selecting words from a dictionary that have a low distance to the word in question.
 
-This package provides methods to determine the distance between two objects, for example, between Strings. Those objects, often represents documents. Normally they are strings but also they can be arrays of numbers that represent a document.
+This package provides methods to determine the distance between two objects, for example, between Strings. Those objects, often represent documents. Normally they are strings but also they can be arrays of numbers that represent a document.
 
   - An edit distance does NOT count matches.
-  - Some commonly referred "edit distances" compare corresponding elements and require objects of equal length (examples: Euclidean, Manhattan, Hamming,...)
+  - Some commonly refered "edit distances" compare corresponding elements and require objects of equal length (examples: Euclidean, Manhattan, Hamming,...)
   - To speed up computation, some distances are based in "tokens", and also referred as token-based distances (example: Cosine similarity).
 
 ## Implemented distances
@@ -28,13 +28,13 @@ _Note that we are currently working on this project so we will be implementing m
   - [Szymkiewicz-Simpson coefficient](#szymkiewicz-Simpson-coefficient)
   - [Shingles similarity](#shingles-similarity)
 
-All the distances are implemented the strategy design pattern. They have the same API.
+All the distances are implemented with the strategy design pattern. They have the same API.
 
-They are two ways of calculating the distance.
+There are two ways of calculating the distance.
 
 One is to use the method `distanceTo: aCollection using: aDistance`.
 
-Or to use `aDistance distanceBetween: xCollection and: yCollection`
+The other is to use `aDistance distanceBetween: xCollection and: yCollection`
 
 ### Euclidean norm
 
