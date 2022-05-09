@@ -103,9 +103,9 @@ The difference between this distance and the restricted Damerau-Levenshtein dist
 How to use it on Playground:
 
 ```st
-DamerauLevenshtein := AIDamerauLevenshteinDistance new.
+damerauLevenshtein := AIDamerauLevenshteinDistance new.
 
-DamerauLevenshtein distanceBetween: 'a cat' and: 'a abct' "2".
+damerauLevenshtein distanceBetween: 'a cat' and: 'a abct' "2".
 ```
 
 Brief explanation :
