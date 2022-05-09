@@ -9,16 +9,22 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 ## Contents
 
-- [Tutorials](#tutorials)
-- [State Space Search](#state-space-search)
-- [Machine Learning](#machine-learning)
-    - [Regression](#regression)
-    - [Classification](#classification)
-    - [Clustering](#clustering)
-- [Data Preprocessing](#-data-preprocessing)
-- [Data Mining](#data-mining)
-- [Metrics](#metrics)
-- [Natural Language Processing](#natural-language-processing)
+- [Pharo-AI Wiki](#pharo-ai-wiki)
+  - [Contents](#contents)
+  - [Tutorials](#tutorials)
+        - [Linear Regression](#linear-regression)
+        - [Logistic Regression](#logistic-regression)
+        - [Clustering](#clustering)
+        - [Edit Distances](#edit-distances)
+  - [State Space Search](#state-space-search)
+  - [Machine Learning](#machine-learning)
+        - [Regression](#regression)
+        - [Classification](#classification)
+        - [Clustering](#clustering-1)
+  - [Data Preprocessing](#data-preprocessing)
+  - [Data Mining](#data-mining)
+  - [Metrics](#metrics)
+  - [Natural Language Processing](#natural-language-processing)
 
 ## Tutorials
 
@@ -26,7 +32,7 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 - [Using Linear Regression for predicting the price of a house using the Boston Dataset](./wiki/Tutorials/linear-regression-tutorial.md)
 
-##### Logistic regression
+##### Logistic Regression 
 
 - [Using Logistic Regression for saying if someone has diabetes based on its physical conditions](./wiki/Tutorials/logistic-regression-tutorial.md)
 
@@ -34,6 +40,10 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 - [Using K-Means Clustering Machine Learning Algorithm - Simple Example](./wiki/Tutorials/clustering-simple-example.md)
 - [Clustering Users of a Credit Card Company using the K-Means Algorithm](./wiki/Tutorials/clustering-credit-card-kmeans.md)
+
+##### Edit Distances
+
+- [Understanding Edit distances](./wiki/Tutorials/edit-distances-tutorial.md)
 
 ## State Space Search
 
