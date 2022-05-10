@@ -63,15 +63,19 @@ levenshetein := AILevenshteinDistance new.
 restrictedDL := AIRestrictedDamerauLevenshteinDistance new.
 fullDL := AIDamerauLevenshteinDistance new.
 ```
+
 ```st
 levenshetein distanceBetween: 'a cat' and: 'an act'. "3"
 ```
+
 ```st
 restrictedDL distanceBetween: 'a cat' and: 'an act'. "2"
 ```
+
 ```st
 fullDL distanceBetween: 'a cat' and: 'a abct'. "2"
 ```
+
 ```st
 restrictedDL distanceBetween: 'a cat' and: 'a abct' "3"
 ```  
