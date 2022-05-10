@@ -9,22 +9,17 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 ## Contents
 
-- [Pharo-AI Wiki](#pharo-ai-wiki)
-  - [Contents](#contents)
-  - [Tutorials](#tutorials)
-        - [Linear Regression](#linear-regression)
-        - [Logistic Regression](#logistic-regression)
-        - [Clustering](#clustering)
-        - [Edit Distances](#edit-distances)
-  - [State Space Search](#state-space-search)
-  - [Machine Learning](#machine-learning)
-        - [Regression](#regression)
-        - [Classification](#classification)
-        - [Clustering](#clustering-1)
-  - [Data Preprocessing](#data-preprocessing)
-  - [Data Mining](#data-mining)
-  - [Metrics](#metrics)
-  - [Natural Language Processing](#natural-language-processing)
+- [Contents](#contents)
+- [Tutorials](#tutorials)
+- [Machine Learning](#machine-learning)
+    - [Regression](#regression)
+    - [Classification](#classification)
+    - [Clustering](#clustering-1)
+- [Data Preprocessing](#data-preprocessing)
+- [Data Mining](#data-mining)
+- [Metrics](#metrics)
+- [State Space Search](#state-space-search)
+- [Natural Language Processing](#natural-language-processing)
 
 ## Tutorials
 
@@ -43,11 +38,7 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 ##### Edit Distances
 
-- [Understanding Edit distances](./wiki/Tutorials/edit-distances-tutorial.md)
-
-## State Space Search
-
-- [Graphs algorithms](./wiki/Graphs/Graph-Algorithms.md)
+- [Edit distances: Understanding them and Examples](./wiki/Tutorials/edit-distances-tutorial.md)
 
 ## Machine Learning
 
@@ -60,13 +51,17 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 - Decision Tree Model
 - Naive Bayes Classifier
-- K-Nearest Neighbours (WIP)
+- [K-Nearest Neighbors](./wiki/MachineLearning/k-nearest-neighbors.md)
 
 ##### Clustering
 
 - [K Means](./wiki/Clustering/k-means.md)
 - Hierarchical Clustering (WIP)
 - Gaussian Mixture Model (WIP)
+
+##### Using metrics
+
+- [Measuring the accuracy of a model](./wiki/MachineLearning/Measuring-the-accuracy-of-a-model.md)
 
 ## Data Preprocessing
 
@@ -81,6 +76,10 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 - [Metrics](./wiki/DataExploration/Metrics.md)
 - [Edit distances](./wiki/StringMatching/Edit-distances.md)
+
+## State Space Search
+
+- [Graphs algorithms](./wiki/Graphs/Graph-Algorithms.md)
 
 ## Natural Language Processing
 
