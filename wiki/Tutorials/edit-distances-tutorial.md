@@ -33,7 +33,7 @@ This function bellow defines the restricted Damerau-Levenshtein distance. The fo
 - To use the restricted Damerau-Levenshtein we have to calculate the transposition operation too (swap two consecutive characters). This is possible with the last condition of our function above. Which is the value of the cell (i-2,j-2). Here its value is 1, so we do the same as we did before, we calculate the min ((2+1,3+1,2+1,1+1) = 2. It's the cell coloured in green. This cell gives us the vaue of restricted Damereau-Levenshtein distance between our first string "a cat" and our second string "an act".
 - _Note_ : Edit distance has properties of dynamic programming. Because at each stage of the algorithm we have the optimal choice. Back to our example of the cell (5,4), if you see this cell represents the substrings `"a ca"` and `"an "`. The edit distance between these two is 3 - since we have to add "n" after the "a" and add "c" and "a" after the space character " ". Three edit operations to transform "a ca" into "an ".
 - _Continuity of note_: If you take any cell of the matrix you'll notice that the value of it is the edit distance of the substrings that is related to. So obviously, the last cell in green is the value of the edit distance of our two starting strings.
- 
+
 <img src="./img/RDL.png" alt="formulaRDL" width="50%" height="50%"><br>
 
 
@@ -55,6 +55,26 @@ The main difference between the retricted algorithm and this one is that in the 
 
 <img src="./img/DL.png" alt="formulaRDL" width="50%" height="50%"><br>
 
+
+## Comparing both distances in Pharo  
+
+```st
+levenshetein := AILevenshteinDistance new.
+restrictedDL := AIRestrictedDamerauLevenshteinDistance new.
+fullDL := AIDamerauLevenshteinDistance new.
+```
+```st
+levenshetein distanceBetween: 'a cat' and: 'an act'. "3"
+```
+```st
+restrictedDL distanceBetween: 'a cat' and: 'an act'. "2"
+```
+```st
+fullDL distanceBetween: 'a cat' and: 'a abct'. "2"
+```
+```st
+restrictedDL distanceBetween: 'a cat' and: 'a abct' "3"
+```  
 
 
 #  What they are used for ?
@@ -82,7 +102,7 @@ So it's kind of about prediction, we don't have to repeat a task that could be d
 - **Optical character recognition** : Recognize the off-line characters from text images. Allows you to quickly and automatically digitize a document without the need for manual data entry.
 - **Document similarity** : Used in Information Retrieval which goal is to develop a model for retrieving(collecting) information from the repositories of documents.
 - **Image Data Matching For Entity Resolution** : Used to track google images results for product design copyright infringement or product matching across different competitors to understand market size or price tracking.
-- **Plagiarism detection** <!-- add doc -->
+<!--- **Plagiarism detection**  add doc -->
 # Example
 
 ## DNA sequence alignment  
@@ -91,32 +111,66 @@ So it's kind of about prediction, we don't have to repeat a task that could be d
 
 **Biology review**: DNA is an acid that contains all of the hereditary genetic information that comes as an "instruction manual". It is composed of four biological macromolecules {Adenine (A), Thymine (T), Guanine (G), Cytosine (C)} that together forme a string called _genetic sequence_.
 
-In bioinformatics, a sequence alignment is a way of arranging the sequences of DNA, RNA, or protein to identify regions of similarity that may be a consequence of functional, structural, or evolutionary relationships between the sequences.
+**In bioinformatics**, a sequence alignment is a way of arranging the sequences of DNA, RNA, or protein to identify regions of similarity that may be a consequence of functional, structural, or evolutionary relationships between the sequences.
 
-The relation with _**edit distance**? :_   
- The edit-distance is the score of the best possible alignment between the two genetic sequences over all possible alignments.
+**Relation with edit distance?** : 
 
-Given two biological sequences (strings of DNA nucleotides or protein amino acids) of length n , the basic problem of biological sequence comparison can be recast as that of determining the Levenshtein distance between them. Biologists prefer to use a generalized Levenshtein distance where instead of simply counting the number of substitutions, insertions, and deletions, each operation will have a different cost depending on where in the string it is applied; i.e. common substitutions will have a lower cost than uncommon ones.
+ The edit-distance is the score of the best possible alignment between two genetic sequences over all possible alignments.
 
-Below, we show two different pairs of long local alignments of a single pair of strings.
+**Why sequence alignment?**  
+
+•  Assembling fragments to sequence DNA.  
+•  Compare individuals to looking for mutations.
+
+For our example we want to compare a DNA sequence of a gene that we found in an  unstudied organism. For what? To know the function of the protein that this gene encodes by comparing it to other sequences and chose the the one with the lowest distance - since it means that is the most similar and has similar functions. So using edit distance, we will measure the similarity of this gene with two other genes that have been sequenced before and whose functions are understood.
+
+So let's compare this sequence:
+
+`G C T A A C T C G G A`
+
+with this one
+
+`C G T A A C A C G G A`
+
+and this one
+
+`C G T A A C A C T T G`
+
+We're going to use the Levenshtein distance.
+
+```st
+|firstSequence secondSequence|
+
+levenshetein := AILevenshteinDistance new.
+
+unknownSequence := 'GCTAACTCGGA'.
+
+firstSequence := 'CGTAACACGGA'.
+
+secondSequence := 'CGTAACACTTG'.
+
+levenshetein distanceBetween: unknownSequence and: firstSequence.  "3"
+
+levenshetein distanceBetween: unknownSequence and: secondSequence.  "6"
+
 ```
- AACGCAAAAACGTCGTCGTTT --> CGCAAAAACGT, CGTCGTCGT
-                           :: :::: :::, :::::::::
- TTCGTCGTCGTAAAACGTTAA --> CGTAAAA-CGT, CGTCGTCGT
-  ```
+
+The more similar sequence between these two is the first one, so for the researches biologists will chose the first over the second one to find the functions of the protein this unknown gene sequence encodes.
 
 
-### Why sequence alignment?
-•  Assembling fragments to sequence DNA  
-•  Compare individuals to looking for mutations
+
+
+
+
 
 
 
 
 <!-- Temporary notes:
-    - Computing the standard edit distance can be formulated as an optimization problem and can be carried out with a dynamic programming algorithm.
     - But our focus
     - The logic behind ...
+  Given two biological sequences (strings of DNA nucleotides or protein amino acids) of length n , the basic problem of biological sequence comparison can be recast as that of determining the Levenshtein distance between them. Biologists prefer to use a generalized Levenshtein distance where instead of simply counting the number of substitutions, insertions, and deletions, each operation will have a different cost depending on where in the string it is applied; i.e. common substitutions will have a lower cost than uncommon ones.
+
 
 [_General definiton_ ](https://github.com/pharo-ai/wiki/blob/master/wiki/StringMatching/Edit-distances.md) 
 
