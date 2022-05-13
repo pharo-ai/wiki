@@ -30,7 +30,7 @@ The algorithm is as follows:
 
 ## Using K-Means
 
-## Setting the parameters
+## Configuring the parameters
 
 For creating an instance of the object, you need to specify the numbers of clusters. For that you can use the constructor method `numberOfClusters:`
 
