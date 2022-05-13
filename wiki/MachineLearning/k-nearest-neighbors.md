@@ -27,7 +27,8 @@ kNN := AIKNearestNeighbors k: 5.
 kNN useEuclideanDistance.
 kNN useHammingDistance.
 kNN useManhattanDistance.
-kNN useMinkowskiDistance
+
+kNN useMinkowskiDistanceWithPValue: 4
 ```
 
 ### Euclidean Distance
@@ -45,6 +46,14 @@ d(x, y) = Σ abs (yi - xi)
 ```
 
 ### Minkowski Distance
+
+This distance needs to be initialized with a p value.
+
+```
+kNN useMinkowskiDistanceWithPValue: 4
+```
+
+The formula is:
 
 ```
 d(x, y) = ( Σ abs (yi - xi) ) ^ (1/p)
