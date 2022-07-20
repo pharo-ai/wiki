@@ -2,7 +2,7 @@
 
 Repository: https://github.com/pharo-ai/linear-algebra
 
-Fast linear algebra implemented using [Lapack](https://github.com/pharo-ai/lapack).
+Fast linear algebra implemented using [Pharo Lapack](https://github.com/pharo-ai/lapack).
 
 ## Matrices implemented
 
