@@ -10,7 +10,7 @@ We have implemented several matrices for usign them as data structures.
 
 All the matrices are subclasses of `AIAbstractMatrix`. They have the same API for creating the matrices.
 
-You can create a matrix with no elements:
+You can create an empty matrix:
 
 ```st
 AIAbstractMatrix newRows: aNumberOfRows columns: aNumberOfColumns
