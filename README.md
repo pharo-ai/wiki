@@ -15,6 +15,7 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
     - [Regression](#regression)
     - [Classification](#classification)
     - [Clustering](#clustering-1)
+- [Linear Algebra](#linear-algebra)
 - [Data Preprocessing](#data-preprocessing)
 - [Data Mining](#data-mining)
 - [Metrics](#metrics)
@@ -62,6 +63,11 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 ##### Using metrics
 
 - [Measuring the accuracy of a model](./wiki/MachineLearning/Measuring-the-accuracy-of-a-model.md)
+
+## Linear Algebra
+
+- [Linear Algebra](./wiki/LinearAlgebra/LinearAlgebra.md)
+- [Pharo LAPACK](./wiki/LinearAlgebra/Lapack.md)
 
 ## Data Preprocessing
 
