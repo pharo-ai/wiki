@@ -2,6 +2,14 @@
 
 Repository: https://github.com/pharo-ai/linear-models
 
+## Table of contents
+
+- [Linear Regression with Gradient Descent](#linear-regression-with-gradient-descent)
+- [Measuring the accuracy of a model](#measuring-the-accuracy-of-a-model)
+- [Linear Regression with Least Squares using Pharo-Lapack](#linear-regression-with-least-squares-using-pharo-lapack)
+- [Linear Regression with Least Squares using PolyMath](#linear-regression-with-least-squares-using-polymath)
+
+## Linear Regression with Gradient Descent
 Linear regression is a well-known machine learning algorithms.
 It allows us to learn the linear dependency between the input variables $x_1, \dots, x_n$ and the output variable $y$.
 Attempts to find the the linear relationship between one or more input variables _x1, x2, ..., xn_ and an output variable _y_. It finds a set of parameters _b, w1, w2, ..., wn_ such that the predicted output _h(x) = b + w1 * x1 + ... + wn * xn_ is as close as possible to the real output _y_. Then we can use the trained model to predict the previously unseen values of y.
@@ -57,7 +65,7 @@ linearRegressionModel predict: testInput.
 
 Please refer to the wiki for [Measuring the accuracy of a model](./Measuring-the-accuracy-of-a-model.md)
 
-## Least Squares + Lapack
+## Linear Regression with Least Squares using Pharo-Lapack
 
 We have implemented the class `AILinearRegressionLeastSquares` that also trains a linear regression model but using other approach. The class `AILinearRegression` uses the gradient descent algorithm for finding the weights of the model. With the class `AILinearRegressionLeastSquares` we model the problems in terms of the least squares problem and we solve it using [Linear Algebra](../LinearAlgebra/Lapack.md). It's a package for solving linear algebra problem, like least squares.That library uses [Pharo-Lapack](../LinearAlgebra/Lapack.md), that is a binding for Lapack in Pharo. We use Lapack for speed up the computation, as Lapack it's a highly optimized library written in Fortran.
 
@@ -96,6 +104,6 @@ AINativeFloatMatrix rows: (
 For more information, please refer to the wiki pages [Linear Algebra](../LinearAlgebra/LinearAlgebra.md) and [Lapack](../LinearAlgebra/Lapack.md)
 
 
-### Least Squares using PolyMath
+### Linear Regression with Least Squares using PolyMath
 
 We also have the class `AILinearRegressionLeastSquaresVanilla` that is a subclass of `AILinearRegressionLeastSquares`. But it uses PolyMath that is written in pure Pharo. You can call the fit method with an array of array, as it doesn't use Lapack, you don't need the special data structures.
