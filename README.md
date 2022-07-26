@@ -5,6 +5,8 @@ This is the Pharo-AI Wiki. The goal of this wiki is to provide documentation and
 - [Getting Started page](./wiki/GettingStarted/GettingStarted.md).
 - [Contributing guide](./wiki/GettingStarted/Contributing.md)
 
+If you want to see other Machine Learning projects in Pharo, please see: https://github.com/pharo-ai/awesome-pharo-ml
+
 Keep in mind that the wiki and pharo-ai is right now under construction version so not all the algorithms will be documented or with all the functionalities that we would like to have.  Nevertheless, all the things that are documented here had been revised and are working.
 
 ## Contents
