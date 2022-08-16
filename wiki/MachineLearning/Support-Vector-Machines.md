@@ -29,7 +29,7 @@ Depending on the dataset and how we want to classify it there are three approach
 ## Example
 
 <p align="center">
-<img src="./img/exampleSVM.png " height="350" />
+<img src="./img/svmExample1.png " height="350" />
 </p>
 
 ## Note
