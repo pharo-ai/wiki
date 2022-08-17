@@ -11,7 +11,6 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 
 ## Contents
 
-- [Contents](#contents)
 - [Tutorials](#tutorials)
     - [Linear Regression](#linear-regression)
     - [Logistic Regression](#logistic-regression)
