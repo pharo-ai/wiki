@@ -22,14 +22,19 @@ Support Vector Machines (abbreviated as SVM) are supervised learning algorithms 
 <img src="./img/svmHyperplan.png" height="350" />
 </p>
 
-Depending on the dataset and how we want to classify it there are three approaches of SVMs: **Hard Margin**, [**Soft Margin**](#soft-margin) and **Kernels**
+Depending on the dataset and how we want to classify it there are three approaches of SVMs: **Hard Margin**, [**Soft Margin**](#soft-margin) and **Kernels**. Since we only have the implementation of Soft Margin approach for the moment, we will expalain only her
 
 ## Soft Margin
+
 
 ## Example
 
 <p align="center">
-<img src="./img/svmExample1.png " height="350" />
+<img src="./img/1.png " height="350" /> 
+<img src="./img/2.png " height="350" />
+<img src="./img/3.png " height="350" />
 </p>
 
-## Note
+
+## Note (move to readme with src code)
+
