@@ -3,12 +3,8 @@
     
     - Intro to the subject (SVM, soft margin, hard margin)
     - How to use it
-    - Example using csv file and Dataframe
-    - Point on: 
-      - Parallel branch about unfinished work
-        - Unfinished work for Hard Margin QP
-        - Unfinished work for Hard Margin SGD (link to the japanese github repo code example)
-      - 
+    - Example using csv file and Dataframe (cancer, iris, ...)
+
 -->
 
 Repository: https://github.com/pharo-ai/Support-Vector-Machines
@@ -27,14 +23,15 @@ Depending on the dataset and how we want to classify it there are three approach
 ## Soft Margin
 
 
-## Example
+## Example (maybe remove title)
+
+For example:
+
+Given 20 input vectors 
 
 <p align="center">
 <img src="./img/1.png " height="350" /> 
 <img src="./img/2.png " height="350" />
 <img src="./img/3.png " height="350" />
 </p>
-
-
-## Note (move to readme with src code)
 
