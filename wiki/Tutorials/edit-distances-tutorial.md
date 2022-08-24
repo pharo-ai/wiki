@@ -2,20 +2,19 @@
 
 Repository: https://github.com/pharo-ai/edit-distances 
 
-In this tutorial we're going to see what edit distance is about and some cool applications in everyday life that are implemented with this distance metrics. First of all, let's explain what is an edit distance.
-Given two strings (finite sequence of symbols) $s_1$ and $s_2$, the edit distance between them is the minimum number of edit operations required to transform $s_1$ into $s_2$. So we can say that with this distance we able to measure the similarity of corresponding symbols. The basic edit operations here are: 
+In this tutorial we're going to see what edit distance is about and some cool applications in everyday life that are implemented with this distance metrics. First of all, let's explain what is an edit distance : Given two strings (finite sequence of symbols) $s_1$ and $s_2$, the edit distance between them is the minimum number of edit operations required to transform $s_1$ into $s_2$. So we can say that with this distance we are able to measure the similarity of corresponding symbols. The basic edit operations here are: 
 
 • Substitutions  
 • Deletions  
 • Insertions 
 
-We say basic for operations because when changing one string into another we usually have to subsitute, delete or insert a character or a symbole (depends on what you're working with). Say you want to write `fork` but instead you wrote `zork`, to correct this sadly mistake you subtitute the `z` for `f`. If we give to this operation the value of 1 (common given value), then `zork` is _1 edit distance away from `fork`_. There are evidently other operations that one can do such as transpositon. And so the variants of edit distance that exist are obtained by restricting the set of operations or adding more.
+We say 'basic operations' because when changing one string into another we usually have to subsitute, delete or insert a character or a symbole (depends on what we are working with). Say you want to write `fork` but instead you wrote `zork`, to correct this sadly mistake you subtitute the `z` for `f`. If we give to this operation the value of 1 (common given value), then `zork` is _1 edit distance away from `fork`_. There are evidently other operations that one can do, so the variants of edit distance that exist are obtained by restricting the set of operations or adding more.
 
-Also, Edit Distance has properties of dynamic programming because the basic principle of dynamic programming is to decompose a problem into stages and find optimal solutions for each stage and save each solution. And that is exactly how different edit distance algorithms work. 
+Important to say, Edit Distance has properties of dynamic programming. Because the basic principle of dynamic programming is to decompose a problem into stages, find optimal solutions for each stage, save each solution. And that is exactly how the different edit distance algorithms work. 
 
  #  How does edit distance algorithm works ? 
 
- The idea is to build a distance matrix. Here we're going to show the progress of the retricted Damerau-Levenshtein and the full Damerau-Levenshtein algorithm. By explaining these two algorithms you will understand the Levenshtein algorithm as well since they are based on this last.
+ The idea is to build a distance matrix. Here we are going to show the progress of the `retricted Damerau-Levenshtein` and the `full Damerau-Levenshtein` algorithm. By explaining these two algorithms you will understand the Levenshtein algorithm as well since they are based on this last one.
 
 ## Restricted Damerau-Levenshtein distance :  
 
@@ -126,19 +125,19 @@ So it's kind of about prediction, we don't have to repeat a task that could be d
 •  Assembling fragments to sequence DNA.  
 •  Compare individuals to looking for mutations.
 
-For our example we want to compare a DNA sequence of a gene that we found in an  unstudied organism. For what? To know the function of the protein that this gene encodes by comparing it to other sequences and chose the the one with the lowest distance - since it means that is the most similar and has similar functions. So using edit distance, we will measure the similarity of this gene with two other genes that have been sequenced before and whose functions are understood.
+For our example we want to compare a DNA sequence of a gene that we found in an  unstudied organism. For what? To know the function of the protein that this gene encodes by comparing it to other sequences and chose the one with the lowest distance - since it will mean that it's the most similar and has similar functions. So using edit distance, we will measure the similarity of this gene with two other genes that have been sequenced before and whose functions are understood.
 
 So let's compare this sequence:
 
-`G C T A A C T C G G A`
+`Seq1 : G C T A A C T C G G A`
 
 with this one
 
-`C G T A A C A C G G A`
+`Seq2 : C G T A A C A C G G A`
 
 and this one
 
-`C G T A A C A C T T G`
+`Seq3 : C G T A A C A C T T G`
 
 We're going to use the Levenshtein distance.
 
