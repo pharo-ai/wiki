@@ -45,7 +45,24 @@ First, we load the boston housing dataset into the Pharo image.
 
 ```st
 "Loading the dataset"
-data := AIDatasets loadBreastCancer.
+file := '/Users/oleks/Downloads/data.csv' asFileReference.
+data := DataFrame readFromCsv: file.
+```
+
+```st
+data columnNames. "an OrderedCollection('id' 'diagnosis' 'radius_mean' 'texture_mean' 'perimeter_mean' 'area_mean' 'smoothness_mean' 'compactness_mean' 'concavity_mean' 'concave points_mean' 'symmetry_mean' 'fractal_dimension_mean' 'radius_se' 'texture_se' 'perimeter_se' 'area_se' 'smoothness_se' 'compactness_se' 'concavity_se' 'concave points_se' 'symmetry_se' 'fractal_dimension_se' 'radius_worst' 'texture_worst' 'perimeter_worst' 'area_worst' 'smoothness_worst' 'compactness_worst' 'concavity_worst' 'concave points_worst' 'symmetry_worst' 'fractal_dimension_worst' nil)"
+```
+
+```st
+"clean data"
+data removeColumns: #('id' nil).
+
+diagnosisMapping := { 'M' -> 1 . 'B' -> 0 } asDictionary.
+
+data column: 'diagnosis' transform: [ :column |
+	column collect: [ :each | diagnosisMapping at: each ] ].
+
+normalizedData := data normalized.
 ```
 
 Now, to train the machine model we need to separate the dataset into at least two parts: one for training and the other for testing it. We have already a library in Pharo that does that: [Random partitioner](https://github.com/pharo-ai/random-partitioner). It is already included be default if you load the Pharo Datasets library.
@@ -64,13 +81,11 @@ Then, we need to obtain the X (independent, input variables) and Y (dependent, o
 
 ```st
 "Separating between X and Y"
-trainData columnNames. "an OrderedCollection('RADIOUS_MEAN' ..)"
+xTrain := trainData columns: (data columnNames copyWithout: 'diagnosis').
+yTrain := trainData column: 'diagnosis'.
 
-xTrain := trainData columns: #('RADIOUS_MEAN' .. ).
-yTrain := trainData column: 'DGNCNCR'.
-
-xTest := testData columns: #('RADIOUS_MEAN' .. ).
-yTest := testData column: 'DGNCNCR'.
+xTest := testData columns: (data columnNames copyWithout: 'diagnosis').
+yTest := testData column: 'diagnosis'.
 ```
 
 Finally, as our SVM model only accepts `SequenceableCollection` and not `DataFrame` objects (for now!), we need to convert the DataFrame into an array. We can do that only sending the message `asArray` or `asArrayOfRows`.
@@ -83,6 +98,12 @@ yTrain := yTrain asArray.
 
 xTest := xTest asArrayOfRows.
 yTest := yTest asArray.
+```
+
+```st
+"Adding 1 to the beginning of each row"
+xTrain := xTrain collect: [ :row | row copyWith: 1 ].
+xTest := xTest collect: [ :row | row copyWith: 1 ].
 ```
 
 # Training the machine learning model
@@ -104,40 +125,10 @@ model maxEpochs: 5000.
 model fitX: xTrain y: yTrain.
 ```
 
-## About normalization
-
-### What is normalization?
-
-In statistics and machine learning, normalization is the process which transforms multiple columns of a dataset to make them numerically consistent with each other (e.g. be on the same scale) but at the same time preserve the valuable information stored in these columns.
-
-For example, we have a table containing the Salaries that a person earns according to some criteria. The values of variable Years since PhD are in the range of `[1 .. 56]` and the salaries `[57,800 .. 231,545]`. If we plot the two variables we see:
-
-<img src="img/normalization_comparison.png"  width=650 height=350 alt="Source: https://blog.oleks.fr/normalization">
-
-So, the big difference between the range of the values can affect our model.
-
-If you want to read more about normalization Oleks has a [nice blog post](https://blog.oleks.fr/normalization) about it.
->Part of the text for explaining normalization were extracted from that post.
-
-For normalizing our data, DataFrame has a simple API: we just call the `DataFrame >> normalized` method that returns a new DataFrame that has been normalized. This method uses the default normalizer that is the min max normalizer. If you want to use another one you can use the method `DataFrame >> normalized: aNormalizerClass` instead.
-
-So, we just execute this part **before** partitioning the data.
-
-```st
-"Normalizing the data frames"
-normalizedData := data normalized.
-```
-
-Pay attention, now, as we want to use the normalized data, in the partitioning part we need to use the `normalizedData` variable instead of `data`.
-
-```st
-subsets := partitioner split: normalizedData withProportions: #(0.75 0.25).
-```
-
 ## Testing the model
 
 Now we can make predictions for previously unseen values: check if a breast cancer is maligne or benigne based on its parameters. To make a prediction we need to send the message `predict:` to the SVM model with the data that we want to predict as an argument.
 
 ```st
-yPredicted := AISupportVectorMachines predict: xTest.
+yPredicted := model predict: xTest.
 ```
