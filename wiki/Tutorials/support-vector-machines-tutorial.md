@@ -19,7 +19,7 @@ First, we load the boston housing dataset into the Pharo image.
 
 ```st
 "Loading the dataset"
-data := AIDatasets loadWistconsingBreastCancer.
+data := AIDatasets loadBreastCancer.
 ```
 
 Now, to train the machine model we need to separate the dataset into at least two parts: one for training and the other for testing it. We have already a library in Pharo that does that: [Random partitioner](https://github.com/pharo-ai/random-partitioner). It is already included be default if you load the Pharo Datasets library.
