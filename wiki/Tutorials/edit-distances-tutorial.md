@@ -18,14 +18,14 @@ Important to say, Edit Distance has properties of dynamic programming. Because t
 
 ## Restricted Damerau-Levenshtein distance :  
 
-For 2 words, such as `'a cat'` and `'an act'`, a matrix of size 5x6 is created as shown in the matrix bellow. Note that the row and column surrounded in light purple are not part of the matrix they are just added to start to count correctly. 
+For 2 words, such as `'a cat'` and `'an act'`, a matrix of size 5x6 is created as shown in the matrix below. Note that the row and column surrounded in light purple are not part of the matrix. They are just added to start to count correctly. 
 
 For calculating the cost of each cell we procede by using this function :
 
 <img src="./img/formuleRDL.png" alt="formulaRDL" width="80%" height="70%"><br>
 
 
-This function bellow defines the restricted Damerau-Levenshtein distance. The four first conditions only, define the Levenshtein distance.
+This function above defines the restricted Damerau-Levenshtein distance. The four first conditions only, define the Levenshtein distance.
 
 - Okay so for each cell, as said we apply the function bellow. Let's take the cell (5,4) for example. Note that in Pharo we start at 1 and not 0. The indexes i are for the rows and j are for the columns.  
 - So we calculate the min of the upper cell value +1, the left cell value +1 and the upper-left cell +( 0 if the characters of this cell are equal and 1 if they're not - in this case no, they're not). These cells are the one indicated with the red arrows, min(2+1,3+1,2+1) = 3. Now, if we stop here we would have calculated the edit distance using Levenshtein distance. 
