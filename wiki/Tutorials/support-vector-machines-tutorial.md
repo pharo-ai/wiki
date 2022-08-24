@@ -3,6 +3,32 @@
 
 _If you don't have the library installed, you can refer to: [Getting Started page](../GettingStarted/GettingStarted.md)_
 
+
+
+
+Packages to load :
+
+```st
+Metacello new
+  baseline: 'AIRandomPartitioner';
+  repository: 'github://pharo-ai/RandomPartitioner';
+  load.
+
+Metacello new
+  baseline: 'AIDatasets';
+  repository: 'github://pharo-ai/datasets';
+  load.
+ 
+Metacello new
+  baseline: 'AISupportVectorMachines;
+  repository: 'github://pharo-ai/support-vector-machines';
+  load.
+
+Metacello new
+  baseline: 'AINormalization';
+  repository: 'github://pharo-ai/normalization';
+  load.
+```
 Support Vector Machines (abbreviated as SVM) are supervised learning algorithms that can be used for classification and regression problems. They are based on the idea of finding a hyperplane that best separates the features into two classes.
 
 We will use data from the [Wisconsin breast cancer diagnostic dataset](https://www.kaggle.com/code/buddhiniw/breast-cancer-prediction) to train the machine learning to be able to predict if someone has or not diabetes based in several parameters.
