@@ -2,7 +2,7 @@
 
 Repository: https://github.com/pharo-ai/edit-distances 
 
-In this tutorial we're going to see what edit distance is about and some cool applications in everyday life that are implemented with this distance metrics. First of all, let's explain what is an edit distance : Given two strings (finite sequence of symbols) $s_1$ and $s_2$, the edit distance between them is the minimum number of edit operations required to transform $s_1$ into $s_2$. So we can say that with this distance we are able to measure the similarity of corresponding symbols. The basic edit operations here are: 
+In this tutorial we are going to see what edit distance is about and some cool applications in everyday life that are implemented with this distance metrics. First of all, let's explain what is an edit distance : Given two strings (finite sequence of symbols) $s_1$ and $s_2$, the edit distance between them is the minimum number of edit operations required to transform $s_1$ into $s_2$. So we can say that with this distance we are able to measure the similarity of corresponding symbols. The basic edit operations here are: 
 
 • Substitutions  
 • Deletions  
