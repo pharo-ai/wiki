@@ -82,7 +82,7 @@ restrictedDL distanceBetween: 'a cat' and: 'a abct' "3"
 
 #  What they are used for ?
 
-The usefulness of edit distances differs from one use to another. By default, a lower distance implies greater similarity between two words. However, in NLP(Natural Language Processing) we generally wish to minimize the distance, not being the case in computational biology where we wish to maximize similarity. Or even in error correcting codes, where we wish to maximize the distance so that one codeword is not easily confused with another. There are many application domains where you might find the utilisation of edit distance such as:
+The usefulness of edit distances differs from one use to another. By default, a lower distance implies greater similarity between two words. However, in NLP(Natural Language Processing) we generally wish to minimize the distance, which is not the case in computational biology where we wish to maximize similarity. Or even in error correcting codes, where we wish to maximize the distance so that one codeword is not easily confused with another one. There are many application domains where you might find the utilisation of edit distance such as:
 
 - **Spelling correction** :  For example a user typed `graffe`, which word is the closest ?
   - graf
@@ -97,7 +97,9 @@ Using the edit distance metric we can affirm that `giraffe` is the closest. That
   
 # Some applications in Machine Learning
 
-Just to put in context we're going to quickly prompt the definiton of Machine Learning:  
+Just to put in context we will quickly remind the definiton of Machine Learning:
+
+
 _It's the use and development of computer systems that are **able to learn and adapt without following explicit instructions**, by using algorithms and statistical models to analyse and draw inferences from patterns in data._
 So it's kind of about prediction, we don't have to repeat a task that could be done mechanicaly (automatically) after training our algorithm or machine on a historical dataset and applying to new data. Here are some machine learning domains that use edit distance:
 
