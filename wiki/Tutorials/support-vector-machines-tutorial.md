@@ -20,7 +20,7 @@ Metacello new
   load.
  
 Metacello new
-  baseline: 'AISupportVectorMachines;
+  baseline: 'AISupportVectorMachines';
   repository: 'github://pharo-ai/support-vector-machines';
   load.
 
