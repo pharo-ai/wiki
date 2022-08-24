@@ -105,7 +105,7 @@ So it's kind of about prediction, we don't have to repeat a task that could be d
 
 - **Recommendation systems** (use of algorithm that suggests relevant items to users): Using the Cosine Similarity distance, its value which is located in the interval of 0 and 1 represent the percentage of similarity between the items (73%, 50%, ... of similarity).
 - **Optical character recognition** : Recognize the off-line characters from text images. Allows you to quickly and automatically digitize a document without the need for manual data entry.
-- **Document similarity** : Used in Information Retrieval which goal is to develop a model for retrieving(collecting) information from the repositories of documents.
+- **Document similarity** : Used in Information Retrieval which goal is to develop a model for retrieving (collecting) information from the repositories of documents.
 - **Image Data Matching For Entity Resolution** : Used to track google images results for product design copyright infringement or product matching across different competitors to understand market size or price tracking.
 <!--- **Plagiarism detection**  add doc -->
 # Example
@@ -141,7 +141,7 @@ and this one
 
 `Seq3 : C G T A A C A C T T G`
 
-We're going to use the Levenshtein distance.
+We will use the Levenshtein distance.
 
 ```st
 |firstSequence secondSequence|
