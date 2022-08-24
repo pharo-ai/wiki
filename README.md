@@ -15,6 +15,7 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
     - [Linear Regression](#linear-regression)
     - [Logistic Regression](#logistic-regression)
     - [Clustering](#clustering)
+    - [Data Mining](#data-mining)
     - [Edit Distances](#edit-distances)
 - [Machine Learning](#machine-learning)
     - [Regression](#regression)
@@ -43,6 +44,10 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 - [Using K-Means Clustering Machine Learning Algorithm - Simple Example](./wiki/Tutorials/clustering-simple-example.md)
 - [Clustering Users of a Credit Card Company using the K-Means Algorithm](./wiki/Tutorials/clustering-credit-card-kmeans.md)
 - [Image segmentation using K-Kmeans](./wiki/Tutorials/image-segmentation-using-kmeans.md)
+
+##### Data Mining
+
+- [Market Basket Analysis Using A-Priori](./wiki/Tutorials/market-basket-analysis-using-a-priori.md)
 
 ##### Edit Distances
 

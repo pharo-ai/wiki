@@ -13,11 +13,14 @@ First, we will load the dataset. Then, normalizing the data, to split between te
 
 ## Table of Contents  
 
-- [Preprocessing the data](#preprocessing-the-data)
-- [Training the machine learning model](#training-the-machine-learning-model)
-- [About normalization](#about-normalization)
-- [Measuring the performance of the model](#measuring-the-performance-of-the-model)
-- [All the code](#all-the-code)
+- [Hands-On Linear Regression](#hands-on-linear-regression)
+	- [Table of Contents](#table-of-contents)
+	- [Preprocessing the data](#preprocessing-the-data)
+	- [Training the machine learning model](#training-the-machine-learning-model)
+	- [About normalization](#about-normalization)
+		- [What is normalization?](#what-is-normalization)
+	- [Measuring the performance of the model](#measuring-the-performance-of-the-model)
+	- [All the code](#all-the-code)
 
 ## Preprocessing the data
 
