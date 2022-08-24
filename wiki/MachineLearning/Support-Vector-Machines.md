@@ -43,7 +43,7 @@ We have an infinit number of possible hyperplans that can separate our data. Sin
 
 
 <p align="center">
-<img src="./img/2.png " height="250" width="250" /> <img src="./img/White_square_50%_transparency.png" height="250" width="250" />
+<img src="./img/2.png " height="250" width="250" />
 <img src="./img/3.png " height="250" width="250" />
 </p>
 
