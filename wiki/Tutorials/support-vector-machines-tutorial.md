@@ -1,4 +1,4 @@
-# Support Vector Machines
+# Support Vector Machines tutorial
 
 
 _If you don't have the library installed, you can refer to: [Getting Started page](../GettingStarted/GettingStarted.md)_
@@ -10,3 +10,70 @@ We will use data from the [Wisconsin breast cancer diagnostic dataset](https://w
 The Wisconsin dataset contains 32 parameters of a breast cancer, like its radius mean, its area mean, its smoothness mean, etc and as an output the dignosis of the cancer wether it's begnine ou maligne.
 
 First, we will load the dataset. Then, normalizing the data, to split between test and training datasets. After that, we will train the SVM model and finally measuring its performance by predicting on test data.
+
+## Preprocessing the data
+
+We will use [Pharo Datasets](https://github.com/pharo-ai/datasets) to load the dataset into the Pharo image. The library contains several datasets ready to be loaded. Pharo Datasets will return a [Pharo DataFrame](https://github.com/PolyMathOrg/DataFrame) object. To install Pharo Datasets you only need to run the code sniped of the Metacello script available on the [README](https://github.com/pharo-ai/Datasets)
+
+First, we load the boston housing dataset into the Pharo image.
+
+```st
+"Loading the dataset"
+data := AIDatasets loadWistconsingBreastCancer.
+```
+
+Now, to train the machine model we need to separate the dataset into at least two parts: one for training and the other for testing it. We have already a library in Pharo that does that: [Random partitioner](https://github.com/pharo-ai/random-partitioner). It is already included be default if you load the Pharo Datasets library.
+
+We will separate it into two sets: test and train. We need this to train the model and after to see how precisely the model is predicting.
+
+```st
+"Dividing into test and training"
+partitioner := AIRandomPartitioner new.
+subsets := partitioner split: data withProportions: #(0.75 0.25).
+trainData := subsets first.
+testData := subsets second.
+```
+
+Then, we need to obtain the X (independent, input variables) and Y (dependent, output variable) for each one of the test and training sets.
+
+```st
+"Separating between X and Y"
+trainData columnNames. "an OrderedCollection('RADIOUS_MEAN' ..)"
+
+xTrain := trainData columns: #('RADIOUS_MEAN' .. ).
+yTrain := trainData column: 'DGNCNCR'.
+
+xTest := testData columns: #('RADIOUS_MEAN' .. ).
+yTest := testData column: 'DGNCNCR'.
+```
+
+Finally, as our SVM model only accepts `SequenceableCollection` and not `DataFrame` objects (for now!), we need to convert the DataFrame into an array. We can do that only sending the message `asArray` or `asArrayOfRows`.
+
+```st
+"Converting the DataFrame into an array of arrays For using it in the linear model.
+For now, the linear model does not work on a DataFrame."
+xTrain := xTrain asArrayOfRows.
+yTrain := yTrain asArray.
+
+xTest := xTest asArrayOfRows.
+yTest := yTest asArray.
+```
+
+# Training the machine learning model
+
+We have everything that is needed to start training the SVM model. We need to load the [Support Vector MAchines library](https://github.com/pharo-ai/support-vector-machines from pharo-ai.
+
+We instantiate the model, set the regularizationStrenght, the learning rate and the max iterations (epochs). After that, we train the model with the `trainX` and `trainY` collections that we have obtained.
+
+
+
+```st 
+"Training the SVM model"
+
+model := AISupportVectorMachines new.
+model regularizationStrenght: 10000.
+model learningRate: 1e-6.
+model maxEpochs: 5000.
+
+model fitX: xTrain y: yTrain.
+```
