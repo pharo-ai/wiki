@@ -160,7 +160,7 @@ levenshetein distanceBetween: unknownSequence and: secondSequence.  "6"
 
 ```
 
-The more similar sequence between these two is the first one, so for the researches biologists will chose the first over the second one to find the functions of the protein this unknown gene sequence encodes.
+The most similar sequence between these two is the `Seq2`. So for their researches, biologists will chose this one over the `Seq3` to find the functions of the protein that this unknown gene sequence encodes.
 
 
 
