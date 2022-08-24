@@ -44,6 +44,10 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 - [Clustering Users of a Credit Card Company using the K-Means Algorithm](./wiki/Tutorials/clustering-credit-card-kmeans.md)
 - [Image segmentation using K-Kmeans](./wiki/Tutorials/image-segmentation-using-kmeans.md)
 
+##### Data Mining
+
+- [Market Basket Analysis Using A-Priori](./wiki/Tutorials/market-basket-analysis-using-a-priori.md)
+
 ##### Edit Distances
 
 - [Edit distances: Understanding them and Examples](./wiki/Tutorials/edit-distances-tutorial.md)
