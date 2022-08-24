@@ -15,6 +15,7 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
     - [Linear Regression](#linear-regression)
     - [Logistic Regression](#logistic-regression)
     - [Clustering](#clustering)
+    - [Data Mining](#data-mining)
     - [Edit Distances](#edit-distances)
 - [Machine Learning](#machine-learning)
     - [Regression](#regression)
