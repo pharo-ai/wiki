@@ -37,7 +37,7 @@ We have the image as a `FileReference` object.
 
 ## Using the image segmentator
 
-Let's create the image segmentation model. After creating the object, we need to load the image using the `loadImage:` message. That method, will convert the `FileReference` object into an instance of `Form`. Also, we need to specify the number of segments. That means in how many colors the image will be segmented. In this case we will chose 3 segments (or colors).
+Let's create the image segmentation model. After creating the object, we need to load the image using the `loadImage:` message. That method will convert the `FileReference` object into an instance of `Form`. Also, we need to specify the number of segments. That means in how many colors the image will be segmented. In this case we will chose 3 segments (or colors).
 
 ```st
 segmentator := AIImageSegmentator new
@@ -46,7 +46,7 @@ segmentator := AIImageSegmentator new
   yourself.
 ```
 
-To cluster the pixel of the image, we need to send the message `clusterImagePixels` to the `segmentator`. This will fit the k-means algorithm with the image that we passed. Note that is the image is too big, this can take some time. With the Renoir image that we are using, this takes only some seconds.
+To cluster the pixels of the image, we need to send the message `clusterImagePixels` to the `segmentator`. This will fit the k-means algorithm with the image that we passed. Note that is the image is large, this can take some time. With the Renoir image that we are using, this takes only some seconds.
 
 ```st
 segmentator clusterImagePixels.
