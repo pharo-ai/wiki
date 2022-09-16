@@ -96,7 +96,7 @@ segmentator openAll.
 
 ![](./img/renoir-river-all-segments.png)
 
-## Sumary of the code
+## Summary of the code
 
 ```st
 file := 'pharo-local/iceberg/pharo-ai/image-segmentation/img/renoir_river.jpg' asFileReference.
