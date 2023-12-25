@@ -44,6 +44,7 @@ Keep in mind that the wiki and pharo-ai is right now under construction version 
 - [Using K-Means Clustering Machine Learning Algorithm - Simple Example](./wiki/Tutorials/clustering-simple-example.md)
 - [Clustering Users of a Credit Card Company using the K-Means Algorithm](./wiki/Tutorials/clustering-credit-card-kmeans.md)
 - [Image segmentation using K-Kmeans](./wiki/Tutorials/image-segmentation-using-kmeans.md)
+- [Hierarchical clustering](./wiki/Tutorials/hierarchical-clustering.md)
 
 ##### Data Mining
 
