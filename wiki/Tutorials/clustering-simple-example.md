@@ -1,92 +1,93 @@
-# Using K-Means Clustering Machine Learning Algorithm - Simple Example
+# Using Agglomerative Hierarchical Clustering Algorithm - Simple Example
+
+## Overview
 
 _If you don't have the library installed, you can refer to: [Getting Started page](../GettingStarted/GettingStarted.md)_
 
-In this example, we are going to cluster data using the k-means algorithm, using the iris dataset (yes, we know... but this dataset is well-suited for this example.)
+In this example, we are going to cluster data using the hierarchical clustering algorithm on a dummy example.
 
-As a first step, we will load the iris dataset:
+Hierarchical  clustering works on a collection of vectors representing *elements* to cluster.
+Each element is represented by an `AIVectorItem`.
 
+The agglomerative hierarchical clustering algorithm will recursively group together the two closest elements of the collection into one new cluster.
+
+1. Each elements can be seen as an atomic cluster;
+1. Group two closest clusters (atomic or not) into one;
+1. Thus at each iteration, there is one less cluster in the collection (replacing two clusters by their new parent);
+1. Recompute the distance from new cluster to all remaining ones
+1. Go back to step 2. until there is only one cluster left (the "root") containing all the initial elements.
+
+## Example
+
+We will use a dummy example of 12 elements.
+
+We make an **Array** of `AIVectorItem`:
 ```st
-iris := AIDatasets loadIris.
+elts := {
+	AIVectorItem with: #a and: #(1 0).
+	AIVectorItem with: #b and: #(1 0).
+	AIVectorItem with: #c and: #(2 0).
+	AIVectorItem with: #d and: #(3 0).
+	AIVectorItem with: #e and: #(4 0).
+	AIVectorItem with: #f and: #(5 0).
+	AIVectorItem with: #g and: #(6 0).
+	AIVectorItem with: #h and: #(7 0).
+	AIVectorItem with: #i and: #(8 0).
+	AIVectorItem with: #j and: #(9 0).
+	AIVectorItem with: #k and: #(0 10).
+	AIVectorItem with: #l and: #(0 10).
+}.
 ```
 
-If we inspect the variable (open the Pharo Inspector) you will see that you have 4 column names.
+Note that #a is equal to #b and #k is equal to #l. therefore they will be the first elements to be grouped in clusters in iteration 1 and 2 of the algorithm.
 
-<img src="./img/data-inspector-iris.png" height="450"/>
-
-For plotting the data, we will use Roassal. In this tutorial we will not show the code, for simplicity purpous. You can see [their webpage](https://github.com/ObjectProfile/Roassal3).
-
-For this example, we will use only two features of the flower: `petal length (cm)` and `petal width (cm)`. 
-
-<img src="./img/petal-graph-roassal-kmeans.png" height="450"/>
-
-With the data plotted in this way, we can see, it seems the data can be clustered in two or three groups. So, we will keep only those.
-
+To compute the hierarchy of clusters (called a *Dendrogram*) we use:
 ```st
-data := iris columns: #('petal length (cm)' 'petal width (cm)').
+engine := AIClusterEngine with: elts.
+engine hierarchicalClusteringUsing: #averageLinkage.
 ```
 
-For the moment, the algorithm expects to receive a Collection. The variables `iris` and `data` are [DataFrame](https://github.com/PolyMathOrg/DataFrame) objects. So, we need to convert them to an Array.
+The dendrogram can be found in `engine dendrogram` it's a binary three with a `#left` and `#right` children.
 
-```st
-dataAsArray := data asArrayOfRows.
-```
+Note: The dendrogram may be visualized with Roassal extension: [https://github.com/pharo-ai/viz](https://github.com/pharo-ai/viz).
+For this, just execute `engine plotDendrogram`
 
-Now, we will create the K-Means clustering model with two clusters. That means, that the algorithm will automatically cluster the data into 2 groups.
+<img src="./img/dendrogram-viz.png" height="450"/>
 
-```st
-kMeans := AIKMeans numberOfClusters: 2.
-kMeans fit: dataAsArray.
-```
+## Configuration
 
-Finally, to see how to algorithm is clustering the data, we can inspect the clusters.
+The argument `#averageLinkage` in the code above is used to compute the distance of new clusters to the other ones.
+There are 3 values possible:
+- `#singleLinkage`: Distance between two clusters is the distance between their two closest (more similar) objects.
+- `#averageLinkage`: Distance between two clusters is the arithmetic mean of all the distances between the objects of one and the objects of the other.
+- `#completeLinkage`: Distance between two clusters is the distance between their two most dissimilar objects.
 
-```st
-clusters := kMeans clusters.
-```
+Single Linkage can result in clusters formed of a "chain of elements" but the first and last elements quite far from one another.
 
-For better understanding the data, we can plot each data point with its corresponding group.
+<img src="./img/single-linkage.png" height="450"/>
 
-<img src="./img/kmeans-data-clustered-two-clusters.png" height="450"/>
+Complete linkage results in clusters with "compact contours", but elements not necessarily compact inside.
+Notice that the left branch of the big cluster (ie. top branch on the plot) is better balanced with Complete linkage than with Average linkage (first figure above)
 
-There is one point that it looks likat it is misplaced. We can try cluster the data into three groups.
+<img src="./img/complete-linkage.png" height="450"/>
 
-```st
-kMeans := AIKMeans numberOfClusters: 3.
-kMeans fit: dataAsArray.
-```
+## Distance matrix
 
-Now, if we plot again the data with each point belonging to its corresponding cluster, it will look like this:
+In the code above, the distance matrix is a default one computed from the elements.
+In this case the distance is the sum of the square differences between two vectors.
 
-We already know, by looking the dataset, that there is only three different groups of iris flowers. But, the k-means algorithm classified the data automatically.
+One can provide a different matrix using any other possible metrics.
+This must be a **distance** matrix (higher value means more different), not a similarity matrix (higher value mean more similar).
 
-This is the result of the cluster.
+## Threshold
 
-<img src="./img/kmeans-data-clustered-three-clusters.png" height="450"/>
+In the plots, the horizontal bar are not always at the same position.
+This depends on the `threshold` of each cluster.
+The threshold of a cluster can be seen as the distance between its two elements.
 
-If we look at the real data plotted, we can see that there is five points that were assigned to the wrong cluster.
+With less elements, the threshold is typically small (elements close one to the other).
+With more elements, the difference start to be bigger and the threshold augment.
 
-<img src="./img/kmeans-data-real.png" height="450"/>
-
-## All the code:
-
-```st
-"Load the dataset"
-iris := AIDatasets loadIris.
-
-"Inspect the data set (open the Pharo Inspector)"
-iris columnNames. "('sepal length (cm)' 'sepal width (cm)' 'petal length (cm)' 'petal width (cm)' 'species')"
-
-"Use only two features of the data"
-data := iris columns: #('petal length (cm)' 'petal width (cm)').
-
-"Convert the data from DataFrame to Array"
-dataAsArray := data asArrayOfRows.
-
-"Train the clustering algorithm"
-kMeans := AIKMeans numberOfClusters: 3.
-kMeans fit: dataAsArray.
-
-"Gettting the clusters"
-clusters := kMeans clusters.
-```
+If you compare the first plot (average linkage) and the last one (complete linkage), you might see that the threshold of the first left node is smaller with average linkage.
+The two clusters contain the same elements (10 elements with a 0 as second part).
+But because complete linkage computes the distance between two clusters as the distance between their two most dissimilar objects, the threshold ends up being higher.
