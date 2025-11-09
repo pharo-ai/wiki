@@ -1,4 +1,4 @@
-# Graph algorithms
+# Graph Algorithms
 
 Repository: https://github.com/pharo-ai/graph-algorithms
 
@@ -12,17 +12,34 @@ Graphs algorithms are very useful for different types of problems. We also have 
 
 ## Implemented graph algorithms
 
-Currently, we have this algorithms implemented.
+Currently, we have these algorithms implemented:
 
-  - Tarjan’s Algorithm: Strongly Connected Components
-  - BFS: Breath First Search
-  - Graph Reducer: Merge all strongly connected components in a graph to a single node
-  - Dijkstra: Shortest path in a weighted graph
-  - Bellman-Ford: Shortest path in negative weighted graphs
-  - Kruskal: Minimum or Maximum expanding tree in a graph
-  - HITS: Hyperlink-Induced Topic Search
-  - Topological Sort
-  - Shortest Path in DAG
+  - Topological Sorting
+  - Shortest Path
+	+ BFS (Breadth First Search)
+	+ DFS (Depth First Search)
+	+ Dijkstra's Algorithm
+	+ Bellman-Ford's Algorithm
+	+ in DAG (Directed Acyclic Graph)
+	+ FloydWarshall's Algorithm
+	+ A* Algorithm
+  - Longest Path
+	+ in DAG (Directed Acyclic Graph)
+	+ in DCG (Directed Cyclic Graph)
+  - Minimum Spanning Tree
+	+ Kruskal’s Algorithm
+	- Prim’s Algorithm
+  - Strongly Connected Components
+	+ Tarjan's Algorithm
+    + Graph Reducer
+  - Maximum Flow
+	+ Edmonds-Karp's Algorithm
+	+ Dinic's Algorithm
+  - Link Analysis
+	+ HITS Algorithm (Hyperlink-Induced Topic Search)
+  - Matching (Independent Edge Set)
+	+ Greedy Matching Approximation Algorithm
+	+ Stable Matching Algorithm
 
 ## How to use the graph algorithms - API 
 
