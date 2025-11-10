@@ -20,12 +20,12 @@ Currently, we have these algorithms implemented:
 	+ DFS (Depth First Search)
 	+ Dijkstra's Algorithm
 	+ Bellman-Ford's Algorithm
-	+ in DAG (Directed Acyclic Graph)
-	+ FloydWarshall's Algorithm
+	+ in DAG (Directed Acyclic Graph)  
+	+ Floyd-Warshall's Algorithm
 	+ A* Algorithm
   - Longest Path
-	+ in DAG (Directed Acyclic Graph)
-	+ in DCG (Directed Cyclic Graph)
+	+ in DAG (variation of shortest path in DAG)
+	+ in DCG (Directed Cyclic Graph). A variation of Bellman-Ford's Algorithm
   - Minimum Spanning Tree
 	+ Kruskal’s Algorithm
 	- Prim’s Algorithm
@@ -36,10 +36,10 @@ Currently, we have these algorithms implemented:
 	+ Edmonds-Karp's Algorithm
 	+ Dinic's Algorithm
   - Link Analysis
-	+ HITS Algorithm (Hyperlink-Induced Topic Search)
+	+ HITS (Hyperlink-Induced Topic Search) Algorithm
   - Matching (Independent Edge Set)
-	+ Greedy Matching Approximation Algorithm
-	+ Stable Matching Algorithm
+	+ Maximum-weight Matching Approximation Algorithm. With variations for minimum-weight and maximum-cardinality
+	+ Stable Matching Algorithm (for the so-called marriage problem)
 
 ## How to use the graph algorithms - API 
 
@@ -110,7 +110,7 @@ shortestPathBToE := dijkstra runFrom: $B to: $E.
 
 ## Graph generation algorithms
 
-This library also contains algorithms for generating regular and random graphs. This algorithms are not loaded by default. To load them, you can either load them manually using Iceberg directly from the Pharo image or load the `GraphGenerators` baseline group.
+This library also contains algorithms for generating regular and random graphs. This algorithms are not loaded by default. To load them, you can either load them manually using [Iceberg directly from the Pharo image](https://github.com/pharo-vcs/iceberg/wiki/Tutorial) or load the `GraphGenerators` baseline group.
 
 The algorithms implemented are:
 
