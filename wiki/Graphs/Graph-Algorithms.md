@@ -19,13 +19,13 @@ Currently, we have these algorithms implemented:
 	+ BFS (Breadth First Search)
 	+ DFS (Depth First Search)
 	+ Dijkstra's Algorithm
-	+ Bellman-Ford's Algorithm
-	+ in DAG (Directed Acyclic Graph)  
+	+ in DAG (Directed Acyclic Graph)
+	+ Bellman-Ford's Algorithm (for DCG, Directed Cyclic Graph)
 	+ Floyd-Warshall's Algorithm
 	+ A* Algorithm
   - Longest Path
 	+ in DAG (variation of shortest path in DAG)
-	+ in DCG (Directed Cyclic Graph). A variation of Bellman-Ford's Algorithm
+	+ in DCG (variation of Bellman-Ford's Algorithm)
   - Minimum Spanning Tree
 	+ Kruskal’s Algorithm
 	- Prim’s Algorithm
