@@ -1,4 +1,4 @@
-# Graph algorithms
+# Graph Algorithms
 
 Repository: https://github.com/pharo-ai/graph-algorithms
 
@@ -12,17 +12,34 @@ Graphs algorithms are very useful for different types of problems. We also have 
 
 ## Implemented graph algorithms
 
-Currently, we have this algorithms implemented.
+Currently, we have these algorithms implemented:
 
-  - Tarjan’s Algorithm: Strongly Connected Components
-  - BFS: Breath First Search
-  - Graph Reducer: Merge all strongly connected components in a graph to a single node
-  - Dijkstra: Shortest path in a weighted graph
-  - Bellman-Ford: Shortest path in negative weighted graphs
-  - Kruskal: Minimum or Maximum expanding tree in a graph
-  - HITS: Hyperlink-Induced Topic Search
-  - Topological Sort
-  - Shortest Path in DAG
+  - Topological Sorting
+  - Shortest Path
+	+ BFS (Breadth First Search)
+	+ DFS (Depth First Search)
+	+ Dijkstra's Algorithm
+	+ in DAG (Directed Acyclic Graph)
+	+ Bellman-Ford's Algorithm (for DCG, Directed Cyclic Graph)
+	+ Floyd-Warshall's Algorithm
+	+ A* Algorithm
+  - Longest Path
+	+ in DAG (variation of shortest path in DAG)
+	+ in DCG (variation of Bellman-Ford's Algorithm)
+  - Minimum Spanning Tree
+	+ Kruskal’s Algorithm
+	- Prim’s Algorithm
+  - Strongly Connected Components
+	+ Tarjan's Algorithm
+    + Graph Reducer
+  - Maximum Flow
+	+ Edmonds-Karp's Algorithm
+	+ Dinic's Algorithm
+  - Link Analysis
+	+ HITS (Hyperlink-Induced Topic Search) Algorithm
+  - Matching (Independent Edge Set)
+	+ Maximum-weight Matching Approximation Algorithm. With variations for minimum-weight and maximum-cardinality
+	+ Stable Matching Algorithm (for the so-called marriage problem)
 
 ## How to use the graph algorithms - API 
 
@@ -93,7 +110,7 @@ shortestPathBToE := dijkstra runFrom: $B to: $E.
 
 ## Graph generation algorithms
 
-This library also contains algorithms for generating regular and random graphs. This algorithms are not loaded by default. To load them, you can either load them manually using Iceberg directly from the Pharo image or load the `GraphGenerators` baseline group.
+This library also contains algorithms for generating regular and random graphs. This algorithms are not loaded by default. To load them, you can either load them manually using [Iceberg directly from the Pharo image](https://github.com/pharo-vcs/iceberg/wiki/Tutorial) or load the `GraphGenerators` baseline group.
 
 The algorithms implemented are:
 
