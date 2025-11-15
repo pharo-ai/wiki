@@ -43,7 +43,7 @@ Currently, we have these algorithms implemented:
 - Matching (Independent Edge Set)
   + Maximum-weight Matching Approximation Algorithm 
     (with variations for minimum-weight and maximum-cardinality)
-  + Gale-Shapely's Stable Matching Algorithm (for the so-called marriage problem)
+  + Gale-Shapely Stable Matching Algorithm (for the so-called marriage problem)
 
 ## How to use the graph algorithms - API
 
@@ -195,7 +195,7 @@ Almost all items are well described in Wikipedia. For a couple of items, the bri
 
 ### Graph problems
 
-- Topological sorting: [Wikipedia]([Topological sorting - Wikipedia](https://en.wikipedia.org/wiki/Topological_sorting))
+- Topological sorting: [Wikipedia](https://en.wikipedia.org/wiki/Topological_sorting)
 
 - Shortest path: [Wikipedia](https://en.wikipedia.org/wiki/Shortest_path_problem)
 
