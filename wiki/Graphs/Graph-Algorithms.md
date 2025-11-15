@@ -213,7 +213,7 @@ Almost all items are well described in Wikipedia. For a couple of items, the bri
 
 - A*: [Wikipedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
 
-- Bellman-Ford's: [Wikipedia](https://en.wikipedia.org/wiki/Bellman–Ford_algorithm), [Jiho's Blog](https://berryjune07.github.io/computer-science/bellman-ford-algorithm.html)
+- Bellman-Ford: [Wikipedia](https://en.wikipedia.org/wiki/Bellman–Ford_algorithm), [Jiho's Blog](https://berryjune07.github.io/computer-science/bellman-ford-algorithm.html)
 
 - BFS: [Wikipedia](https://en.wikipedia.org/wiki/Breadth-first_search), [Jiho's Blog](https://berryjune07.github.io/computer-science/dfs-and-bfs.html#bfs)
 
@@ -223,11 +223,11 @@ Almost all items are well described in Wikipedia. For a couple of items, the bri
 
 - Dinic's: [Wikipedia](https://en.wikipedia.org/wiki/Dinic%27s_algorithm), [Geeks for geeks](https://www.geeksforgeeks.org/dsa/dinics-algorithm-maximum-flow)
 
-- Edmonds-Karp's: [Wikipedia](https://en.wikipedia.org/wiki/Edmonds–Karp_algorithm)
+- Edmonds-Karp: [Wikipedia](https://en.wikipedia.org/wiki/Edmonds–Karp_algorithm)
 
-- Floyd-Warshall's: [Wikipedia](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm), [Jiho's Blog](https://berryjune07.github.io/computer-science/floyd-warshall-algorithm.html)
+- Floyd-Warshall: [Wikipedia](https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm), [Jiho's Blog](https://berryjune07.github.io/computer-science/floyd-warshall-algorithm.html)
 
-- Gale-Shapely's: [Wikipedia](https://de.wikipedia.org/wiki/Stable_Marriage_Problem#Gale-Shapley-Algorithmus)
+- Gale-Shapely: [Wikipedia](https://de.wikipedia.org/wiki/Stable_Marriage_Problem#Gale-Shapley-Algorithmus)
 
 - HITS: [Wikipedia](https://en.wikipedia.org/wiki/HITS_algorithm)
 
