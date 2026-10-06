@@ -79,7 +79,26 @@ fullDL distanceBetween: 'a cat' and: 'a abct'. "2"
 restrictedDL distanceBetween: 'a cat' and: 'a abct' "3"
 ```  
 
+## Unicode text and edit distance
 
+When edit-distance algorithms are used with Unicode text, it is important to define what one edit operates on. A visible character is not always represented by a single Unicode code point, and two strings that look identical can have different underlying representations.
+
+For example, an accented character can be represented either as a precomposed code point or as a base character followed by a combining mark. If those two representations are compared directly, the measured edit distance can reflect the representation difference rather than the difference perceived by a reader.
+
+A Unicode-aware comparison commonly considers two preprocessing steps:
+
+- **Normalization**: convert canonically equivalent text to a consistent Unicode normalization form before comparison.
+- **Segmentation**: decide whether the algorithm operates on code points or on user-perceived characters (extended grapheme clusters).
+
+The Levenshtein recurrence itself does not need to change. What changes is the sequence supplied to the algorithm.
+
+This distinction is also relevant to Unicode text transformations. Operations such as normalization, transliteration, width conversion, combining-mark insertion, or substitution with visually styled Unicode characters can change the underlying sequence. Therefore the distance calculated before a transformation and the distance calculated after it are not necessarily the same.
+
+For further reading:
+
+- [Unicode Standard Annex #15 — Unicode Normalization Forms](https://www.unicode.org/reports/tr15/)
+- [Unicode Standard Annex #29 — Unicode Text Segmentation](https://www.unicode.org/reports/tr29/)
+- [Unicode Text Transformations & Edit Distance](https://www.levenshtein.net/unicode-text-transformations)
 #  What they are used for ?
 
 The usefulness of edit distances differs from one use to another. By default, a lower distance implies greater similarity between two words. However, in NLP(Natural Language Processing) we generally wish to minimize the distance, which is not the case in computational biology where we wish to maximize similarity. Or even in error correcting codes, where we wish to maximize the distance so that one codeword is not easily confused with another one. There are many application domains where you might find the utilisation of edit distance such as:
